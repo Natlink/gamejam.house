@@ -6,8 +6,8 @@ using UnityEngine;
 public class MovingEntity : AbstractEntity
 {
 
-    public float Speed;
-    public float MaxVelocity;
+    public float Acceleration =10;
+    public float MaxSpeed=5;
     public Rigidbody Rgbd;
 
     // Start is called before the first frame update
@@ -19,10 +19,12 @@ public class MovingEntity : AbstractEntity
     void FixedUpdate()
     {
 
-        float xDirection = Input.GetAxisRaw("Horizontal") * Speed;
-        float zDirection = Input.GetAxisRaw("Vertical") * Speed;
+        float xDirection = Input.GetAxisRaw("Horizontal") * Acceleration * 10;
+        float zDirection = Input.GetAxisRaw("Vertical") * Acceleration * 10;
         if (xDirection != 0 || zDirection != 0)
             Move(xDirection, zDirection);
+        else
+            Rgbd.velocity /= 2;
     }
 
 
@@ -32,9 +34,9 @@ public class MovingEntity : AbstractEntity
         
         Vector3 velocity = Rgbd.velocity;
 
-        if (velocity.sqrMagnitude > MaxVelocity*MaxVelocity)
+        if (velocity.sqrMagnitude > MaxSpeed*MaxSpeed)
         {
-            float factor = MaxVelocity / velocity.magnitude;
+            float factor = MaxSpeed / velocity.magnitude;
             velocity.x = velocity.x * factor;
             velocity.z = velocity.z * factor;
         }
