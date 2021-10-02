@@ -229,8 +229,8 @@ MonoBehaviour:
   moveZ: Player2MoveZ
   aimX: Player2AimX
   aimZ: Player2AimZ
-  fire1: Player2Fire2
-  fire2: Player2Fire1
+  fire1: Player2Fire1
+  fire2: Player2Fire2
   fire3: Player2Fire3
   SpeedNormal: 10
   SpeedIce: 12.5
