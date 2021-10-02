@@ -47,7 +47,6 @@ public class MovingEntity : AbstractEntity
 
         if (button)
         {
-            Debug.Log("Piou !");
             var b = Instantiate<Bullet>(bullet);
             b.Init(Rgbd.position, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
         }
@@ -57,15 +56,13 @@ public class MovingEntity : AbstractEntity
     private void Update()
     {
         button |= Input.GetButtonDown(fire1);
-        if(Input.GetButtonDown(fire1))
-        {
-            Debug.Log("Piou ? " + fire1);
-        }
     }
 
     void Move()
     {
-        bool onIce = map.GetCell(Rgbd.position).Prop.CurrentElement == CellElement.Ice;
+        HexCell cell = map.GetCell(Rgbd.position);
+        if (cell == null) return;
+        bool onIce = cell.Prop.CurrentElement == CellElement.Ice;
         float speed = (onIce ? SpeedIce : SpeedNormal);
         float xDirection = Input.GetAxis(moveX) * speed;
         float zDirection = Input.GetAxis(moveZ) * speed;
