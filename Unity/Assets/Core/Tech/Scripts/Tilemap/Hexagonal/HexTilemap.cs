@@ -6,6 +6,9 @@ using UnityEngine;
 public class HexTilemap : AbstractTilemap
 {
 
+	public Color defaultColor = Color.white;
+	public Color touchedColor = Color.magenta;
+
 	public HexCell[] Cells;
 	public HexCell CellPrefab;
 	public TextMeshProUGUI TextPrefab;
@@ -41,6 +44,43 @@ public class HexTilemap : AbstractTilemap
 		HexCell cell = Cells[i] = Instantiate<HexCell>(CellPrefab);
 		cell.transform.SetParent(transform, false);
 		cell.transform.localPosition = position;
+		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
+
+		cell.color = defaultColor;
 	}
 
+	void Update()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			HandleInput();
+		}
+	}
+
+	void HandleInput()
+	{
+		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		if (Physics.Raycast(inputRay, out hit))
+		{
+			TouchCell(GetCell(hit.point));
+		}
+	}
+
+	public void TouchCell(HexCell cell)
+	{
+		if (cell == null) return;
+
+		cell.HitCell(Test.CurrentBullet);
+		Mesh.Triangulate(Cells);
+	}
+
+	public HexCell GetCell(Vector3 position)
+    {
+		transform.InverseTransformPoint(position);
+		HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+		int index = coordinates.X + coordinates.Z * Width + coordinates.Z / 2;
+		return index > 0 && index < Width * Height ?
+				Cells[index] : null;
+	}
 }

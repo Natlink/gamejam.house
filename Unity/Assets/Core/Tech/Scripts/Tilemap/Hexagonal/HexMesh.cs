@@ -10,6 +10,7 @@ public class HexMesh : MonoBehaviour
 	List<Vector3> vertices;
 	List<int> triangles;
 	MeshCollider meshCollider;
+	List<Color> colors;
 
 	void Awake()
 	{
@@ -20,10 +21,12 @@ public class HexMesh : MonoBehaviour
 
 		GetComponent<MeshFilter>().mesh = hexMesh = new Mesh();
 		meshCollider = gameObject.AddComponent<MeshCollider>();
+		colors = new List<Color>();
 	}
 
 	public void Triangulate(HexCell[] cells)
 	{
+		colors.Clear();
 		hexMesh.Clear();
 		vertices.Clear();
 		triangles.Clear();
@@ -34,6 +37,7 @@ public class HexMesh : MonoBehaviour
 		hexMesh.vertices = vertices.ToArray();
 		hexMesh.triangles = triangles.ToArray();
 		hexMesh.RecalculateNormals();
+		hexMesh.colors = colors.ToArray();
 
 		meshCollider.sharedMesh = hexMesh;
 	}
@@ -48,7 +52,16 @@ public class HexMesh : MonoBehaviour
 				center + HexCell.Corners[i],
 				center + HexCell.Corners[i + 1]
 			);
+
+			AddTriangleColor(cell.color);
 		}
+	}
+
+	void AddTriangleColor(Color color)
+	{
+		colors.Add(color);
+		colors.Add(color);
+		colors.Add(color);
 	}
 
 	void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3)
@@ -61,27 +74,5 @@ public class HexMesh : MonoBehaviour
 		triangles.Add(vertexIndex + 1);
 		triangles.Add(vertexIndex + 2);
 	}
-	void Update()
-	{
-		if (Input.GetMouseButton(0))
-		{
-			HandleInput();
-		}
-	}
 
-	void HandleInput()
-	{
-		Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
-		if (Physics.Raycast(inputRay, out hit))
-		{
-			TouchCell(hit.point);
-		}
-	}
-
-	void TouchCell(Vector3 position)
-	{
-		position = transform.InverseTransformPoint(position);
-		Debug.Log("touched at " + position);
-	}
 }
