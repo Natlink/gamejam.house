@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GlowFire
+  m_Shader: {fileID: 4800000, guid: c66b2bbe51b959840ab81052dafd9a39, type: 3}
+  m_ShaderKeywords: _ACTIVATEEFFECT1_ON _FLOAT0_ON _ISPANNING1_ON _ISPANNING3_ON
+    _ISPANNING4_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DistortionTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ErosionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ActivateEffect: 0
+    - _ActivateEffect2: 0
+    - _ActivateEffect3: 0
+    - _AlphaCoefficient: 1
+    - _CullMode: 2
+    - _Depth: 0
+    - _DstBlendMode: 10
+    - _EmissiveGlow: 1
+    - _Erosion: 0
+    - _Flow: 0
+    - _Glow: 2
+    - _Invert: 0
+    - _IsEmissive: 0
+    - _IsPanning: 0
+    - _IsPanning3: 1
+    - _IsPanning4: 1
+    - _MaskAlongUVs: 0
+    - _MaskCoefficient: 1
+    - _Smoothness: 0
+    - _SrcBlendMode: 1
+    - _UseBlueChannelasMask: 0
+    - _UseCustomVertexStreams1X: 0
+    - _UseCustomVertexStreams2: 0
+    - _UseCustomVertexStreams3: 0
+    - _UseGreenChannelasErosion: 0
+    - __dirty: 0
+    m_Colors:
+    - _FakeFogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 0.9787016, b: 0.6462264, a: 1}
+    - _PannerSpeed2: {r: 1, g: 0, b: 0, a: 0}
+    - _SecondaryColor: {r: 0.7924528, g: 0.3715097, b: 0.33268064, a: 1}
+    - _UVMasking: {r: 1, g: 0, b: 0, a: 0}
+    - _UVPanningSPEED: {r: 1, g: 0, b: 0, a: 0}
+    - _XYSpeedZWClampAlpha: {r: 0, g: 0, b: 0, a: 1}
