@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +16,11 @@ public class MovingEntity : AbstractEntity
         Rgbd = this.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        float xDirection = Input.GetAxis("Horizontal") * Speed;
-        float zDirection = Input.GetAxis("Vertical") * Speed;
+        float xDirection = Input.GetAxisRaw("Horizontal") * Speed;
+        float zDirection = Input.GetAxisRaw("Vertical") * Speed;
         if (xDirection != 0 || zDirection != 0)
             Move(xDirection, zDirection);
     }
@@ -33,24 +32,11 @@ public class MovingEntity : AbstractEntity
         
         Vector3 velocity = Rgbd.velocity;
 
-        if (Mathf.Abs(velocity.x) > MaxVelocity)
+        if (velocity.sqrMagnitude > MaxVelocity*MaxVelocity)
         {
-            if (Mathf.Abs(velocity.z) > MaxVelocity)
-            {
-                velocity.x = velocity.x > 0 ? MaxVelocity : -MaxVelocity;
-                velocity.z = velocity.z > 0 ? MaxVelocity : -MaxVelocity;
-                //x y
-            }
-            else
-            {
-                velocity.x = velocity.x > 0 ? MaxVelocity : -MaxVelocity;
-                // x
-            }
-        }
-        else if (Mathf.Abs(velocity.z) > MaxVelocity)
-        {
-            velocity.z = velocity.z > 0 ? MaxVelocity : -MaxVelocity;
-            // y
+            float factor = MaxVelocity / velocity.magnitude;
+            velocity.x = velocity.x * factor;
+            velocity.z = velocity.z * factor;
         }
         
         Rgbd.velocity = velocity;
