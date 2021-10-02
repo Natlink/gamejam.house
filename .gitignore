@@ -1,6 +1,10 @@
 Unity/Logs
-Unity/Library
 Unity/Logs/*
-Unity/Library/*
 Unity/Logs/**
+Unity/Library
+Unity/Library/*
 Unity/Library/**
+Unity/Temp
+Unity/Temp/*
+Unity/Temp/**
+Unity/Library/ArtifactDB
