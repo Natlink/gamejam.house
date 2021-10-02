@@ -1,0 +1,6 @@
+Unity/Logs
+Unity/Library
+Unity/Logs/*
+Unity/Library/*
+Unity/Logs/**
+Unity/Library/**
