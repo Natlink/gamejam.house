@@ -502,6 +502,7 @@ MonoBehaviour:
   deadZone: 0.1
   deadZoneAim: 0.15
   Rgbd: {fileID: 0}
+  map: {fileID: 676064471}
   bullet: {fileID: -2093610783650277905, guid: 113398d50d5e4204a80a062f8787a0c4, type: 3}
 --- !u!54 &870370109
 Rigidbody:

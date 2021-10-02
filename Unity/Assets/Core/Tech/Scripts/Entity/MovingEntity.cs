@@ -13,6 +13,7 @@ public class MovingEntity : AbstractEntity
     public float deadZone = 0.1f;
     public float deadZoneAim = 0.15f;
     public Rigidbody Rgbd;
+    public HexTilemap map;
     private bool button = false;
     public Bullet bullet;
     private float angle = 0;
@@ -25,13 +26,7 @@ public class MovingEntity : AbstractEntity
 
     void FixedUpdate()
     {
-        float xDirection = Input.GetAxis("Horizontal") * (Rgbd.position.x < 0 ? SpeedNormal : SpeedIce);
-        float zDirection = Input.GetAxis("Vertical") * (Rgbd.position.x < 0 ? SpeedNormal : SpeedIce);
-        Vector2 direction = new Vector2(xDirection, zDirection);
-        bool move = deadZone * deadZone < direction.sqrMagnitude;
-        xDirection = move ? xDirection : 0;
-        zDirection = move ? zDirection : 0;
-        Move(xDirection, zDirection);
+        Move();
 
         float xAim = Input.GetAxis("HorizontalAim");
         float zAim = Input.GetAxis("VerticalAim");
@@ -56,16 +51,24 @@ public class MovingEntity : AbstractEntity
         button |= Input.GetButtonDown("Fire2");
     }
 
-    void Move(float xDirection, float zDirection)
+    void Move()
     {
+        bool onIce = map.GetCell(Rgbd.position).Prop.CurrentElement == CellElement.Ice;
+        float speed = (onIce ? SpeedIce : SpeedNormal);
+        float xDirection = Input.GetAxis("Horizontal") * speed;
+        float zDirection = Input.GetAxis("Vertical") * speed;
+        Vector2 direction = new Vector2(xDirection, zDirection);
+        bool move = deadZone * deadZone < direction.sqrMagnitude;
+        xDirection = move ? xDirection : 0;
+        zDirection = move ? zDirection : 0;
         //Rgbd.AddForce(new Vector3(xDirection, 0, zDirection));
-        
+
         Vector3 prevVelocity = Rgbd.velocity;
         Vector3 targetVelocity = new Vector3(xDirection, 0, zDirection);
-        float Inertia = (Rgbd.position.x < 0 ? InertiaNormal : InertiaIce);
+        float Inertia = (onIce ? InertiaIce : InertiaNormal);
         Rgbd.velocity = (prevVelocity * Inertia) + (targetVelocity * (1 - Inertia));
         
-        //Debug.Log("old : " + prevVelocity + ", target : " + targetVelocity + ", new : " + Rgbd.velocity);
+        // Debug.Log("old : " + prevVelocity + ", target : " + targetVelocity + ", new : " + Rgbd.velocity);
     }
 }
 
