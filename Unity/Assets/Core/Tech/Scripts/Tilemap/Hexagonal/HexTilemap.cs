@@ -63,15 +63,15 @@ public class HexTilemap : AbstractTilemap
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit))
 		{
-			TouchCell(GetCell(hit.point));
+			TouchCell(GetCell(hit.point), Test.CurrentBullet);
 		}
 	}
 
-	public void TouchCell(HexCell cell)
+	public void TouchCell(HexCell cell, BulletElement element)
 	{
 		if (cell == null) return;
 
-		cell.HitCell(Test.CurrentBullet);
+		cell.HitCell(element);
 		Mesh.Triangulate(Cells);
 	}
 

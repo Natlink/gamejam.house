@@ -48,7 +48,7 @@ public class MovingEntity : AbstractEntity
         if (button)
         {
             var b = Instantiate<Bullet>(bullet);
-            b.Init(Rgbd.position, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)));
+            b.Init(Rgbd.position, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
         }
         button = false;
     }
