@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -201,7 +201,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142405931}
-  m_Material: {fileID: 13400000, guid: d0d9c019cfcd18147b0b39bb9c07780f, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -494,9 +494,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcc20a32ea615940aa3c73347b5eb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Acceleration: 10
-  MaxSpeed: 5
+  SpeedNormal: 10
+  SpeedIce: 12.5
+  SpeedLiquid: 6
+  InertiaNormal: 0.5
+  InertiaIce: 0.95
+  deadZone: 0.1
+  deadZoneAim: 0.15
   Rgbd: {fileID: 0}
+  bullet: {fileID: -2093610783650277905, guid: 113398d50d5e4204a80a062f8787a0c4, type: 3}
 --- !u!54 &870370109
 Rigidbody:
   m_ObjectHideFlags: 0
