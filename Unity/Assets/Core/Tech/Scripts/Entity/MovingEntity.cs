@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class MovingEntity : AbstractEntity
 {
+    public String moveX = "Player1MoveX";
+    public String moveZ = "Player1MoveZ";
+    public String aimX = "Player1AimX";
+    public String aimZ = "Player1AimZ";
+    public String fire1 = "Player1Fire1";
+    public String fire2 = "Player1Fire2";
+    public String fire3 = "Player1Fire3";
     public float SpeedNormal = 10;
     public float SpeedIce = 12.5f;
     public float SpeedLiquid = 6f;
@@ -28,14 +35,14 @@ public class MovingEntity : AbstractEntity
     {
         Move();
 
-        float xAim = Input.GetAxis("HorizontalAim");
-        float zAim = Input.GetAxis("VerticalAim");
+        float xAim = Input.GetAxis(aimX);
+        float zAim = Input.GetAxis(aimZ);
         Vector2 aim = new Vector2(xAim, zAim);
         if (deadZoneAim * deadZoneAim < aim.sqrMagnitude)
         {
             angle = Mathf.Atan2(xAim, zAim);
             this.transform.rotation = Quaternion.Euler(0, angle * 180 / Mathf.PI, 0);
-            Debug.Log(xAim + ", " + zAim + ", " + angle);
+            // Debug.Log(xAim + ", " + zAim + ", " + angle);
         }
 
         if (button)
@@ -48,15 +55,15 @@ public class MovingEntity : AbstractEntity
 
     private void Update()
     {
-        button |= Input.GetButtonDown("Fire2");
+        button |= Input.GetButtonDown(fire1);
     }
 
     void Move()
     {
         bool onIce = map.GetCell(Rgbd.position).Prop.CurrentElement == CellElement.Ice;
         float speed = (onIce ? SpeedIce : SpeedNormal);
-        float xDirection = Input.GetAxis("Horizontal") * speed;
-        float zDirection = Input.GetAxis("Vertical") * speed;
+        float xDirection = Input.GetAxis(moveX) * speed;
+        float zDirection = Input.GetAxis(moveZ) * speed;
         Vector2 direction = new Vector2(xDirection, zDirection);
         bool move = deadZone * deadZone < direction.sqrMagnitude;
         xDirection = move ? xDirection : 0;
