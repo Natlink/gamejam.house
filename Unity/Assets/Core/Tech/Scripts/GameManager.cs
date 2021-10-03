@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool Player2;
     public bool Player3;
     public bool Player4;
+    public bool forceP1;
 
     public string GameScene;
     public string MenuScene;
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
         Player2 = p2;
         Player3 = p3;
         Player4 = p4;
+        if (forceP1)
+        {
+            Player1 = true;
+        }
         SceneManager.LoadScene(GameScene);
     }
 
