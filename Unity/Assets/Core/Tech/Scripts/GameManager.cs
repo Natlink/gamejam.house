@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
 
     public int ElementCountOnBoard = 4;
     public int CurrentMeteoCount = 1;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         for(int x = 0; x < ElementCountOnBoard; ++x)
         {
             Map.SpawnRandomElement();

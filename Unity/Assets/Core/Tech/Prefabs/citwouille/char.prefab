@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6736980483192862406}
   - component: {fileID: 8834487176992637452}
   m_Layer: 0
-  m_Name: citwouille
+  m_Name: char
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
