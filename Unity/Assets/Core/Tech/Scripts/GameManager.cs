@@ -46,21 +46,11 @@ public class GameManager : MonoBehaviour
 
     void Meteo()
     {
-        switch (CurrentMeteoElement)
+        for (int i = 0; i < CurrentMeteoCount; ++i)
         {
-            case BulletElement.Water:
-                for (int i = 0; i < CurrentMeteoCount * 6; ++i)
-                {
-                    Map.SpawnRandomMeteo(0, CurrentMeteoElement);
-                }
-                break;
-            default:
-                for (int i = 0; i < CurrentMeteoCount; ++i)
-                {
-                    Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), CurrentMeteoElement);
-                }
-                break;
+            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), CurrentMeteoElement);
         }
+
         CurrentMeteoCount++;
         CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
         MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
