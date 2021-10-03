@@ -7,20 +7,22 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        Debug.Log("Laucnhing Game");
-        // SceneManager.LoadScene("Enzo");
+        SceneManager.LoadScene("Enzo");
     }
 
     public void Rules()
     {
-        // SceneManager.LoadScene("Rules");
-        Debug.Log("Rules Scene Holder");
+        SceneManager.LoadScene("Rules");
     }
 
     public void Credits()
     {
-        // SceneManager.LoadScene("Credits");
-        Debug.Log("Credits Scene Holder");
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()
