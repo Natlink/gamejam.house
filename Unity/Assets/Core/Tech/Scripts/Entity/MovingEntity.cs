@@ -51,8 +51,9 @@ public class MovingEntity : MonoBehaviour
     private bool onMapDamageCooldown = false;
 
     // Start is called before the first frame update
-    public void Start()
+    public void Init(HexTilemap map)
     {
+        this.map = map;
         Rgbd = this.GetComponent<Rigidbody>();
         Anim = GetComponentInChildren<Animator>();
         TextElement.text = CurrentElement + "";

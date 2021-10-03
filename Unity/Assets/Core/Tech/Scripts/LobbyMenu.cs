@@ -53,7 +53,7 @@ public class LobbyMenu : MonoBehaviour
 
     public void Play()
     {
-        GameManager.Instance.LoadGame(Player1, Player2, Player3, Player4);
+        GameManager.Instance.LoadGame(true, Player2, Player3, Player4);
     }
 
     public void Quit()
