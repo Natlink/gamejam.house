@@ -157,7 +157,7 @@ public class CellProp : MonoBehaviour
                 CurrentElement = CellElement.Ice;
                 break;
             case CellElement.Lava:
-                CurrentElement = CellElement.Lava;
+                CurrentElement = CellElement.Neutral;
                 break;
             case CellElement.Ice:
                 break;
