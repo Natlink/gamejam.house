@@ -7,22 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tile
-  m_Shader: {fileID: 4800000, guid: d18e4a6e25f4e2041afd7c8a02ed5a79, type: 3}
-  m_ShaderKeywords: 
+  m_Name: WaterGround_01
+  m_Shader: {fileID: 4800000, guid: c66b2bbe51b959840ab81052dafd9a39, type: 3}
+  m_ShaderKeywords: _ACTIVATEEFFECT2_ON _ISPANNING3_ON _ISPANNING4_ON _MASKALONGUVS_ON
+    _USECUSTOMVERTEXSTREAMS1X_ON
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Albedo:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -39,43 +36,31 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DistortionTexture:
+        m_Texture: {fileID: 2800000, guid: c068f140c584612469e41c535e4aa1e7, type: 3}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FlammesTex:
-        m_Texture: {fileID: 2800000, guid: 0553036eb3b5d7344b60a0f76560cfa7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _FlaqueWater:
-        m_Texture: {fileID: 2800000, guid: 45ecdd6d6c88d8642938462c3a008265, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _HighlightMask:
-        m_Texture: {fileID: 2800000, guid: d41d99d19903afb4d879d464a356d297, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _IceTex:
-        m_Texture: {fileID: 2800000, guid: 0ca89a77c28d44343abce59abcefb6aa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _LavaTex:
-        m_Texture: {fileID: 2800000, guid: b76473c8544ce1b44b62bd9b3dcd89e2, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _LavaTex1:
-        m_Texture: {fileID: 2800000, guid: 0ca89a77c28d44343abce59abcefb6aa, type: 3}
+    - _ErosionMap:
+        m_Texture: {fileID: 2800000, guid: 6586ba43fccc72843a093eeb518a3a27, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 88ba0066a32bf2f499598cc4eae9b71a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NormalMap:
+    - _MaskTexture:
+        m_Texture: {fileID: 2800000, guid: 1b24b7cd1616c7e40992857cc0635b57, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -87,24 +72,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: d3765929b7c988340be216c85bd639e3, type: 3}
+    - _tex4coord:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TopTileMask:
-        m_Texture: {fileID: 2800000, guid: 57ec9a8c1f6ed1b469850f51cddeee3c, type: 3}
+    - _tex4coord2:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _distTex:
-        m_Texture: {fileID: 2800000, guid: c068f140c584612469e41c535e4aa1e7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _distTex1:
-        m_Texture: {fileID: 2800000, guid: c068f140c584612469e41c535e4aa1e7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _distTex2:
-        m_Texture: {fileID: 2800000, guid: b76473c8544ce1b44b62bd9b3dcd89e2, type: 3}
+    - _tex4coord3:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -113,35 +90,56 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ActivateEffect: 0
+    - _ActivateEffect2: 1
+    - _ActivateEffect3: 0
+    - _AlphaCoefficient: 1
     - _BumpScale: 1
+    - _CullMode: 2
     - _Cutoff: 0.5
+    - _Depth: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EffectProgress: 1
-    - _EffectType: 3
-    - _Flammes: 0
-    - _Flaque: 0
-    - _Glace: 0
+    - _DstBlendMode: 1
+    - _EmissiveGlow: 1
+    - _Erosion: 0
+    - _Flow: 0.144
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HightlightGlow: 3
-    - _Lave: 0
+    - _Glow: 1.59
+    - _Invert: 0
+    - _IsEmissive: 0
+    - _IsPanning: 0
+    - _IsPanning3: 1
+    - _IsPanning4: 1
+    - _MaskAlongUVs: 1
+    - _MaskCoefficient: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Rocher: 1
-    - _Smoothness: 0
+    - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transparency: 1
+    - _SrcBlendMode: 1
     - _UVSec: 0
+    - _UseBlueChannelasMask: 0
+    - _UseCustomVertexStreams1X: 1
+    - _UseCustomVertexStreams2: 0
+    - _UseCustomVertexStreams3: 0
+    - _UseGreenChannelasErosion: 0
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 0.2735849, g: 0.23874155, b: 0.23874155, a: 1}
+    - _FakeFogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 0.14244394, g: 0.30753672, b: 0.9150943, a: 1}
+    - _PannerSpeed2: {r: 0.2, g: 0, b: 0, a: 0}
+    - _SecondaryColor: {r: 0.011764526, g: 0, b: 1, a: 0}
+    - _UVMasking: {r: 1, g: 0, b: 0, a: 0}
+    - _UVPanningSPEED: {r: 1, g: 0, b: 0, a: 0}
+    - _XYSpeedZWClampAlpha: {r: 0.5, g: 0.5, b: 0, a: 1}
   m_BuildTextureStacks: []
