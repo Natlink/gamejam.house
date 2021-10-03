@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: 89a5dea29336f3046a7e5adf7487b798
+guid: 7da03737a36462d418b96b5517893273
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7795868664651178381
+    second: How_To_Play_Selec_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +44,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,11 +92,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: How_To_Play_Selec_0
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 542
+        width: 255
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e1ed7f0c28fc390800000000000000
+      internalID: -7795868664651178381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 5c5d4641f4d34704d9f79534ca18a78a
     internalID: 0
     vertices: []
     indices: 

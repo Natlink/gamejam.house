@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Core/Scenes/Rules.unity
     guid: 01f1e61caa63f2b45ac33a33c40c2b06
+  - enabled: 1
+    path: Assets/Scenes/Enzo.unity
+    guid: 76fc87991c47eb942b12d71affe08443
+  - enabled: 1
+    path: Assets/Core/Scenes/Credits.unity
+    guid: 76dedbadb37a1b1459d05e29262b6c68
   m_configObjects: {}
