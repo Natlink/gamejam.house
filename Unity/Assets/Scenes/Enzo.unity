@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -442,7 +442,11 @@ MonoBehaviour:
   Cells: []
   CellPrefab: {fileID: 2065827252392442688, guid: bba9c33f0c6ba794eb812e6aa35fcc90, type: 3}
   TextPrefab: {fileID: 7788473440780068587, guid: 264f2fb5d34f0f741ac6bae20a599282, type: 3}
-  Elements: []
+  Elements:
+  - {fileID: 3636881010764476171, guid: 06514421c52d0094db178aade19a01cd, type: 3}
+  - {fileID: 7239133000723890365, guid: e35152a436f522247b67939d4a0da108, type: 3}
+  - {fileID: 1315589399419348907, guid: 44f9b47880ebbad4a96eb31268df44c1, type: 3}
+  - {fileID: 1373397212172515936, guid: c075303caa6c58f48b75b6a6eb52da1e, type: 3}
 --- !u!23 &676064472
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1339,6 +1343,10 @@ PrefabInstance:
       propertyPath: Text
       value: 
       objectReference: {fileID: 1603949921}
+    - target: {fileID: 7936467342611140529, guid: a7f9f50f8dc432b4f82c149930d73495, type: 3}
+      propertyPath: cheat
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7936467342611140529, guid: a7f9f50f8dc432b4f82c149930d73495, type: 3}
       propertyPath: TextPV
       value: 
