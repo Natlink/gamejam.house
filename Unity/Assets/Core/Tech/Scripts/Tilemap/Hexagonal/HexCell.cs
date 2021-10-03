@@ -8,7 +8,7 @@ public class HexCell : MonoBehaviour
 {
     public Color color;
 
-    public const float OuterRadius = 0.5f;
+    public const float OuterRadius = 1f;
     public const float InnerRadius = OuterRadius * 0.866025404f;
 
     public HexCoordinates coordinates;
