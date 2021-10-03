@@ -1118,9 +1118,12 @@ MonoBehaviour:
   Player2: 0
   Player3: 0
   Player4: 0
-  GameScene: 
-  MenuScene: 
+  forceP1: 1
+  GameScene: Core/Scenes/GameScene
+  MenuScene: Core/Scenes/MainMenu
+  VictoryScene: Core/Scenes/VictoryScreen
   World: {fileID: 0}
+  Winner: 0
 --- !u!4 &2030795144
 Transform:
   m_ObjectHideFlags: 0

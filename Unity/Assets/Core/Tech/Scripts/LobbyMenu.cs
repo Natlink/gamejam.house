@@ -35,19 +35,19 @@ public class LobbyMenu : MonoBehaviour
         if (Input.GetButtonDown("Player2Fire1"))
         {
             Player2 = !Player2;
-            Player1Text.text = "Player 2" + (Player2 ? "Present" : "away");
+            Player2Text.text = "Player 2" + (Player2 ? "Present" : "away");
         }
 
         if (Input.GetButtonDown("Player3Fire1"))
         {
             Player3 = !Player3;
-            Player1Text.text = "Player 3" + (Player3 ? "Present" : "away");
+            Player3Text.text = "Player 3" + (Player3 ? "Present" : "away");
         }
 
         if (Input.GetButtonDown("Player4Fire1"))
         {
             Player4 = !Player4;
-            Player1Text.text = "Player 4" + (Player4 ? "Present" : "away");
+            Player4Text.text = "Player 4" + (Player4 ? "Present" : "away");
         }
     }
 

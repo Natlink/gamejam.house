@@ -45,18 +45,21 @@ public class MovingEntity : MonoBehaviour
     public bool cheat;
 
     public const int maxLife = 12;
-    private int currentLife = maxLife;
+    public int currentLife = maxLife;
 
     public float mapDamageCooldown = 1.0f;
     private bool onMapDamageCooldown = false;
+    private WorldManager Manager;
 
     // Start is called before the first frame update
-    public void Start()
+    public void Init(HexTilemap map, WorldManager worldManager)
     {
+        this.map = map;
         Rgbd = this.GetComponent<Rigidbody>();
         Anim = GetComponentInChildren<Animator>();
         TextElement.text = CurrentElement + "";
         TextPV.text = "Life: " + currentLife;
+        Manager = worldManager;
     }
 
     // Update is called once per frame
@@ -129,7 +132,6 @@ public class MovingEntity : MonoBehaviour
         {
             angle = Mathf.Atan2(xAim, zAim);
             this.transform.rotation = Quaternion.Euler(0, angle * 180 / Mathf.PI, 0);
-            // Debug.Log(xAim + ", " + zAim + ", " + angle);
         }
     }
 
@@ -160,8 +162,11 @@ public class MovingEntity : MonoBehaviour
         if(onMapDamagingCell && !onMapDamageCooldown)
         {
             Damage(1);
-            onMapDamageCooldown = true;
-            StartCoroutine("MapDamageCooldown");
+            if (currentLife > 0)
+            {
+                onMapDamageCooldown = true;
+                StartCoroutine("MapDamageCooldown");
+            }
         }
     }
 
@@ -198,8 +203,9 @@ public class MovingEntity : MonoBehaviour
     void Die()
     {
         TextPV.text = "Dead";
-        
-        // TODO ^^
+        TextElement.text = "";
+        this.gameObject.SetActive(false);
+        Manager.OnCharacterDie();
     }
 }
 

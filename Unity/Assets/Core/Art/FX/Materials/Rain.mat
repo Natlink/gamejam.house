@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rain
+  m_Shader: {fileID: 4800000, guid: c66b2bbe51b959840ab81052dafd9a39, type: 3}
+  m_ShaderKeywords: _ACTIVATEEFFECT1_ON _FLOAT0_ON _ISPANNING1_ON _ISPANNING4_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionTexture:
+        m_Texture: {fileID: 2800000, guid: 9a6174c6675a3fa4bbc29fa67a98e98c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ErosionMap:
+        m_Texture: {fileID: 2800000, guid: 209f5c21fe8c6f44187bfebe9476104c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ErosionMap1:
+        m_Texture: {fileID: 2800000, guid: 1e1905d3acadc7345893405e24e055b7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ErosionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 73ef42b06e5873b48b5e16a54fc9bd1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 73ef42b06e5873b48b5e16a54fc9bd1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture1:
+        m_Texture: {fileID: 2800000, guid: 1c4a38c7f6e79c44db3ddfd22b82c237, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTexture:
+        m_Texture: {fileID: 2800000, guid: 209f5c21fe8c6f44187bfebe9476104c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondTexture1:
+        m_Texture: {fileID: 2800000, guid: 1c4a38c7f6e79c44db3ddfd22b82c237, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThirdTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThirdTexture1:
+        m_Texture: {fileID: 2800000, guid: c068f140c584612469e41c535e4aa1e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex4coord3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ActivateEffect: 0
+    - _ActivateEffect1: 1
+    - _ActivateEffect2: 0
+    - _ActivateEffect3: 0
+    - _AlphaCoefficient: 1
+    - _AlphaCoefficient1: 1
+    - _BlendMode: 1
+    - _BumpScale: 1
+    - _CullMode: 2
+    - _Cutoff: 0.5
+    - _Debug: 0
+    - _Depth: 0.6
+    - _Depth1: 1
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _DstBlendMode: 10
+    - _EmissiveGlow: 1
+    - _Erosion: 0.277
+    - _Erosion1: 0
+    - _ErosionSmoothness: 1
+    - _ErosionSpeed: 0
+    - _ErosionUseCustomVertexStreams: 0
+    - _Float0: 1
+    - _Float1: 0
+    - _Flow: 0.065
+    - _Flow1: 0.3
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Glow: 1
+    - _Glow1: 1.54
+    - _HasAlphaErosion: 0
+    - _HasAlphaMask: 0
+    - _HasSecondaryMap: 0
+    - _Invert: 0
+    - _IsEmissive: 0
+    - _IsPanning: 1
+    - _IsPanning1: 1
+    - _IsPanning3: 0
+    - _IsPanning4: 1
+    - _MainmapUseCustomVertexStreams: 0
+    - _MaskAlongUVs: 0
+    - _MaskCoefficient: 1
+    - _MaskPower: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _NoisePower: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmapUseCustomVertexStreams: 0
+    - _Smoothness: 0.595
+    - _Smoothness1: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _SrcBlendMode: 1
+    - _UVSec: 0
+    - _U_Speed: 0
+    - _U_Speed2: 0
+    - _UseAlphaChannel: 0
+    - _UseBlueChannelasMask: 0
+    - _UseCustomVertexStreams: 0
+    - _UseCustomVertexStreams1: 0
+    - _UseCustomVertexStreams1X: 0
+    - _UseCustomVertexStreams2: 0
+    - _UseCustomVertexStreams3: 0
+    - _UseGreenChannelasErosion: 0
+    - _V_Speed: 0
+    - _V_Speed2: 0
+    - _ZWrite: 1
+    - __dirty: 0
+    - _isAdditiveOnly: 0
+    - _isBlendedOnly: 0
+    - _isPremultiplied: 0
+    m_Colors:
+    - _ClampAlpha3: {r: 1, g: 1, b: 0, a: 0}
+    - _ClampAlpha4: {r: 0, g: 1, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color2: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ErosionSubColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _ErosionSubColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _FFogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FFogColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _FakeFogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor1: {r: 1, g: 0.6367924, b: 0.6367924, a: 1}
+    - _PannerSpeed2: {r: 1, g: 0, b: 0, a: 0}
+    - _PannerSpeed3: {r: 1, g: 0, b: 0, a: 0}
+    - _PannerSpeed4: {r: 1, g: 1, b: 0, a: 0}
+    - _SecondaryColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondaryColor1: {r: 1, g: 0.08018869, b: 0.08018869, a: 1}
+    - _SecondaryColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _SpeedXYClampAlphaZW: {r: 0.02, g: -0.05, b: 0, a: 0}
+    - _UVMasking: {r: 1, g: 0, b: 0, a: 0}
+    - _UVPanningSPEED: {r: 0, g: 0, b: 0, a: 0}
+    - _UVPanningSPEED1: {r: 0, g: 0, b: 0, a: 0}
+    - _Vector0: {r: 0.02, g: -0.05, b: 0, a: 0}
+    - _XYSpeedZWClampAlpha: {r: 0.56, g: -0.05, b: 0, a: 1}
+  m_BuildTextureStacks: []
