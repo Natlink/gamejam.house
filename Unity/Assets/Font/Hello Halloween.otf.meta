@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 907a9dc5a81b4e545a3ee242973c43da
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Hello Halloween
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3034744fe0e186a4aaf1656b2c5c909b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
