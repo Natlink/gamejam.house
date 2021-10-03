@@ -25,6 +25,10 @@ public class MovingEntity : AbstractEntity
     public Bullet bullet;
     private float angle = 0;
 
+    public float reloadTimer = 3.0f; 
+    private bool canShoot = true; 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,10 +49,12 @@ public class MovingEntity : AbstractEntity
             // Debug.Log(xAim + ", " + zAim + ", " + angle);
         }
 
-        if (button)
+        if (button && canShoot)
         {
             var b = Instantiate<Bullet>(bullet);
             b.Init(Rgbd.position, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
+
+            StartCoroutine("Reload");
         }
         button = false;
     }
@@ -56,6 +62,14 @@ public class MovingEntity : AbstractEntity
     private void Update()
     {
         button |= Input.GetButtonDown(fire1);
+    }
+
+    IEnumerator Reload()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(reloadTimer);
+        canShoot = true;
+        yield return null;
     }
 
     void Move()
