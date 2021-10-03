@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     {
         for(int x = 0; x < ElementCountOnBoard; ++x)
         {
-          //  Map.SpawnRandomElement();
+            Map.SpawnRandomElement();
         }
     }
 

@@ -24,6 +24,7 @@ public class MovingEntity : AbstractEntity
         if (CurrentElement == BulletElement.Neutral)
         {
             CurrentElement = element;
+            Text.text = CurrentElement+"";
             return true;
         }
         return false;
@@ -69,6 +70,7 @@ public class MovingEntity : AbstractEntity
 
         if (button && canShoot && CurrentElement != BulletElement.Neutral)
         {
+            Text.text = CurrentElement + "";
             var b = Instantiate<Bullet>(bullet);
             b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), CurrentElement, map);
             canShoot = false;

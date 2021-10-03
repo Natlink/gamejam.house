@@ -148,7 +148,7 @@ public class HexTilemap : AbstractTilemap
 
 		ElementObject o = Instantiate(Elements[elem], c.transform);
 		o.Map = this;
-		o.transform.position = new Vector3(o.transform.position.x, 1, o.transform.position.z);
+		o.transform.position = new Vector3(o.transform.position.x, 0.15f, o.transform.position.z);
 	}
 
 
