@@ -146,7 +146,7 @@ public class HexTilemap : AbstractTilemap
 		GameObject explo = meteoFX == null ? null:Instantiate(meteoFX);
 		GameObject warning = meteoWarningFX == null ? null:Instantiate(meteoWarningFX);
 		HexCell c = Cells[Random.Range(0, (Width * Height) - 1)];
-		if(explo!=null)
+		if(explo!=null && element != BulletElement.Wind)
 			explo.transform.position = c.transform.position;
 
 	//	StartCoroutine(warningFX(meteoDelay, c, element, meteoSize, warning));
@@ -156,15 +156,11 @@ public class HexTilemap : AbstractTilemap
  
 	IEnumerator explosionFX(float secs, HexCell c, BulletElement element, int meteoSize, GameObject explosionFX)
 	{
-		Debug.Log(element + " " + explosionFX + " wait for "+secs);
 		yield return new WaitForSeconds(secs);
-		Debug.Log(element + " " + explosionFX + " after");
 		if (explosionFX != null)
 		{
 			Destroy(explosionFX);
-			Debug.Log(element + " destroyed");
 		}
-		Debug.Log(element + " happend");
 		TouchCell(c, element, meteoSize);
 	}
 

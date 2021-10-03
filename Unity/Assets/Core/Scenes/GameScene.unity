@@ -432,8 +432,8 @@ MonoBehaviour:
   - {fileID: 644940829}
   - {fileID: 588866483}
   MeteoFXs:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6185177883648227538, guid: 8ba23f4d9233e774da1d7d8e967ee6a9, type: 3}
+  - {fileID: 2804832235266436340, guid: 0c9fb87684ffb054e8effb20a0bb8be3, type: 3}
   - {fileID: 2481164301776879305, guid: d8f09503c17ef4849a7433534de92713, type: 3}
   - {fileID: 1458051004529050490, guid: 6ddc4de8b270c2e45806b1d0782bf69b, type: 3}
   timing: 0
