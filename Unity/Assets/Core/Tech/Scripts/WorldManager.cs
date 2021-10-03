@@ -22,12 +22,16 @@ public class WorldManager : MonoBehaviour
     public int MeteoMinDelay = 10;
 
     public int MeteoMaxDelay = 20;
+    public int MeteoDelay = 20;
+    public float MeteoDelayWarning = 5;
+    public float MeteoDelayExplosion = 1;
     private int MeteoRandomDelay;
 
     public HexTilemap Map;
     public MovingEntity[] DefaultPlayers;
     public MovingEntity[] CurrentPlayers;
     public GameObject[] PlayerSpawn;
+    public GameObject[] MeteoFXs;
 
     public float timing;
 
@@ -93,9 +97,11 @@ public class WorldManager : MonoBehaviour
 
     void Meteo()
     {
+        GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
+      //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
         for (int i = 0; i < CurrentMeteoCount; ++i)
         {
-            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), CurrentMeteoElement);
+            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, MeteoFX, null);
         }
 
         CurrentMeteoCount++;
