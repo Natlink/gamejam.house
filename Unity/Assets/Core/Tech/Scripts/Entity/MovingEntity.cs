@@ -112,7 +112,7 @@ public class MovingEntity : MonoBehaviour
         zDirection = move ? zDirection : 0;
 
         Vector3 prevVelocity = Rgbd.velocity;
-        Vector3 targetVelocity = new Vector3(xDirection, 0, zDirection);
+        Vector3 targetVelocity = new Vector3(xDirection, prevVelocity.y, zDirection);
         float Inertia = (onIce ? InertiaIce : InertiaNormal);
         Rgbd.velocity = (prevVelocity * Inertia) + (targetVelocity * (1 - Inertia));
     }

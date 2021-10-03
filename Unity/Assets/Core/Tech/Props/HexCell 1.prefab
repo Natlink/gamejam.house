@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 5934355783268939917}
   - {fileID: 182675134424170350}
   - {fileID: 7450947177066741269}
+  CellCollider: {fileID: 7424570365958982765}
   lerpDuration: 1
 --- !u!23 &1267432068640079709
 MeshRenderer:
@@ -243,6 +244,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.015, y: 0.015, z: 1.84}
   m_Center: {x: 0, y: 0, z: 0.5}
+--- !u!114 &7424570365958982765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7450947177066741269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e217fa7b65435c04aad22a17b425ef5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColliderEnabled: 1
 --- !u!1001 &346665971855363426
 PrefabInstance:
   m_ObjectHideFlags: 0
