@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &2253289153813590795
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378612571615902191}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d0b224b8982230642a01ea2068db4db5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!96 &7215318684108405156
 TrailRenderer:
   serializedVersion: 2
@@ -70,7 +51,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.8432827
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -79,12 +60,12 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.08208956
-        inSlope: -2.767589
-        outSlope: -2.767589
+        value: 0.6044817
+        inSlope: -1.0269655
+        outSlope: -1.0269655
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.159091
+        inWeight: 0.15259749
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -127,6 +108,25 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!95 &2253289153813590795
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378612571615902191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0b224b8982230642a01ea2068db4db5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5474804844027392092
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,15 +269,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8578
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8578
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.8578
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -285,11 +285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.08
+      value: 0.066
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.79
+      value: -0.745
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 904e0db42d13bde49a5b0317dce4da84, type: 3}
       propertyPath: m_LocalRotation.w
