@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -595,7 +595,7 @@ MonoBehaviour:
   Rgbd: {fileID: 0}
   map: {fileID: 676064471}
   bullet: {fileID: -2093610783650277905, guid: 113398d50d5e4204a80a062f8787a0c4, type: 3}
-  reloadTimer: 3
+  reloadTimer: 0.75
   radius: 1
 --- !u!54 &870370109
 Rigidbody:
@@ -704,13 +704,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.72350025, y: -0.0024318222, z: -0.0008954299, w: 0.6903193}
-  m_LocalPosition: {x: 17.36, y: 21.94, z: 14.52}
+  m_LocalRotation: {x: 0.5728359, y: -0.00220695, z: -0.0013582803, w: 0.819666}
+  m_LocalPosition: {x: 17.38, y: 22.44, z: 3.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 87.298, y: -534.336, z: -534.21204}
+  m_LocalEulerAnglesHint: {x: 69.895, y: -360.862, z: -360.793}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
