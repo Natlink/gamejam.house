@@ -95,7 +95,7 @@ public class CellProp : MonoBehaviour
             foreach (string s in elems)
             {
                 Material.SetFloat(s, 0);
-                Material.SetFloat("_Transparency", 1);
+                Material.SetFloat("_Transparency", 0);
             }
         }
     }
