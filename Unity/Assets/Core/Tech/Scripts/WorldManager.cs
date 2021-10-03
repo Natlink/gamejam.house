@@ -96,7 +96,7 @@ public class WorldManager : MonoBehaviour
 
     void Meteo()
     {
-        if(CurrentMeteoElement == BulletElement.Neutral)
+        if(CurrentMeteoElement != BulletElement.Neutral)
         {
             GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
             //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
