@@ -31,18 +31,9 @@ public class MovingEntity : MonoBehaviour
     public Bullet bullet;
     public float angle = 0;
 
+    public TextMeshProUGUI TextElement;
+    public TextMeshProUGUI TextPV;
     public BulletElement CurrentElement;
-
-    internal bool CanPickElement(BulletElement element)
-    {
-        if (CurrentElement == BulletElement.Neutral)
-        {
-            CurrentElement = element;
-            Text.text = CurrentElement+"";
-            return true;
-        }
-        return false;
-    }
 
     public int radius = 1;
 
@@ -51,8 +42,6 @@ public class MovingEntity : MonoBehaviour
     private bool canShoot = true;
 
     public bool cheat;
-    public TextMeshProUGUI Text;
-    public TextMeshProUGUI TextPV;
 
     public const int maxLife = 12;
     private int currentLife = maxLife;
@@ -61,9 +50,11 @@ public class MovingEntity : MonoBehaviour
     private bool onMapDamageCooldown = false;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         Rgbd = this.GetComponent<Rigidbody>();
+        TextElement.text = CurrentElement + "";
+        TextPV.text = "Life: " + currentLife;
     }
 
     // Update is called once per frame
@@ -84,22 +75,22 @@ public class MovingEntity : MonoBehaviour
             if (Input.GetKeyDown("joystick button 0"))
             {
                 CurrentElement = BulletElement.Fire;
-                Text.text = CurrentElement + "";
+                TextElement.text = CurrentElement + "";
             }
             if (Input.GetKeyDown("joystick button 1"))
             {
                 CurrentElement = BulletElement.Wind;
-                Text.text = CurrentElement + "";
+                TextElement.text = CurrentElement + "";
             }
             if (Input.GetKeyDown("joystick button 2"))
             {
                 CurrentElement = BulletElement.Earth;
-                Text.text = CurrentElement + "";
+                TextElement.text = CurrentElement + "";
             }
             if (Input.GetKeyDown("joystick button 3"))
             {
                 CurrentElement = BulletElement.Water;
-                Text.text = CurrentElement + "";
+                TextElement.text = CurrentElement + "";
             }
         }
 
@@ -143,11 +134,11 @@ public class MovingEntity : MonoBehaviour
     {
         if (button && canShoot && CurrentElement != BulletElement.Neutral)
         {
-            Text.text = CurrentElement + "";
             var b = Instantiate<Bullet>(bullet);
             b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), CurrentElement, map);
             canShoot = false;
             CurrentElement = BulletElement.Neutral;
+            TextElement.text = CurrentElement + "";
             StartCoroutine("Reload");
         }
         button = false;
@@ -169,7 +160,6 @@ public class MovingEntity : MonoBehaviour
             onMapDamageCooldown = true;
             StartCoroutine("MapDamageCooldown");
         }
-        Debug.Log("Life : " + currentLife);
     }
 
     IEnumerator MapDamageCooldown()
@@ -179,9 +169,22 @@ public class MovingEntity : MonoBehaviour
         yield return null;
     }
 
+    internal bool CanPickElement(BulletElement element)
+    {
+        if (CurrentElement == BulletElement.Neutral)
+        {
+            CurrentElement = element;
+            TextElement.text = CurrentElement + "";
+            return true;
+        }
+        return false;
+    }
+
+
     public void Damage(int amount)
     {
         currentLife -= amount;
+        TextPV.text = "Life: " + currentLife;
         if(currentLife <= 0)
         {
             Die();
@@ -190,6 +193,7 @@ public class MovingEntity : MonoBehaviour
 
     void Die()
     {
+        TextPV.text = "Dead";
         // TODO ^^
     }
 }
