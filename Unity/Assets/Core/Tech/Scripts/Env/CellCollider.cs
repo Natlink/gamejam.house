@@ -18,7 +18,7 @@ public class CellCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ColliderEnabled && Time.time > Timer + 1)
+        if (ColliderEnabled && Time.time > Timer + 0.05f)
         {
             ColliderEnabled = false;
         }
