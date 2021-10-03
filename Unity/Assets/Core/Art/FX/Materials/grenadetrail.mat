@@ -103,6 +103,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaCoefficient: 2
     - _BumpScale: 1
@@ -164,10 +165,11 @@ Material:
     - _ErosionSubColor1: {r: 1, g: 1, b: 1, a: 1}
     - _ErosionSubColor2: {r: 1, g: 1, b: 1, a: 1}
     - _FFogColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 1, g: 0.7396903, b: 0.5529412, a: 1}
+    - _MainColor: {r: 0.5529412, g: 0.9066482, b: 1, a: 1}
     - _PannerSpeed2: {r: -1, g: 0, b: 0, a: 0}
     - _PannerSpeed3: {r: -2, g: 0.3, b: 0, a: 0}
     - _SecondaryColor: {r: 0.99215686, g: 0.3280675, b: 0.32156858, a: 1}
     - _SecondaryColor1: {r: 1, g: 1, b: 1, a: 1}
     - _SecondaryColor2: {r: 1, g: 1, b: 1, a: 1}
     - _UVPanningSPEED: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
