@@ -3,7 +3,12 @@ guid: 50017ff3c0e8fc141bb80831ab64604d
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jetons_elementaire_dofus
+    second: {fileID: 2100000, guid: e5558db828d377c4b9ba021834d35b29, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
