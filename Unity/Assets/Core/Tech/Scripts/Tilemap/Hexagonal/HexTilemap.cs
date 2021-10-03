@@ -31,9 +31,9 @@ public class HexTilemap : AbstractTilemap
 		}
 		foreach(HexCell c in Cells)
         {
-			int xShift = co.Z / 2;
 			c.Neighboors = new List<HexCell>();
 			var co = c.coordinates;
+			int xShift = co.Z / 2;
 			int max = Width * Height, x = 0, z = 0;
 			c.Neighboors.Add((x = co.X - 1 + xShift) >= 0 && x < Width ? Cells[x + co.Z * Width] : null);
 			c.Neighboors.Add((x = co.X + 1 + xShift) >= 0 && x < Width ? Cells[x + co.Z * Width] : null);
