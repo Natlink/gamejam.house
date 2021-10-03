@@ -81,10 +81,12 @@ public class CellProp : MonoBehaviour
                 if (s.Equals(elem))
                 {
                     Material.SetFloat(elem, 1);
+                    Material.SetFloat("_Transparency", 0);
                 }
                 else
                 {
                     Material.SetFloat(s, 0);
+                    Material.SetFloat("_Transparency", 1);
                 }
             }
         }
@@ -93,6 +95,7 @@ public class CellProp : MonoBehaviour
             foreach (string s in elems)
             {
                 Material.SetFloat(s, 0);
+                Material.SetFloat("_Transparency", 0);
             }
         }
     }
@@ -148,7 +151,7 @@ public class CellProp : MonoBehaviour
         switch (CurrentElement)
         {
             case CellElement.Flamme:
-                Explosion();
+                CurrentElement = CellElement.Neutral;
                 break;
             case CellElement.Rock:
                 CurrentElement = CellElement.Neutral;

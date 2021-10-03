@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,10 @@ public class GameManager : MonoBehaviour
     public int MeteoSizeMin = 0;
     public int MeteoSizeMax = 3;
 
-    public int MeteoDelay = 5;
+    public int MeteoMinDelay = 10;
+    
+    public int MeteoMaxDelay = 20;
+    private int MeteoRandomDelay;
     
     public HexTilemap Map;
     public MovingEntity[] Players;
@@ -23,14 +27,15 @@ public class GameManager : MonoBehaviour
     {
         for(int x = 0; x < ElementCountOnBoard; ++x)
         {
-          //  Map.SpawnRandomElement();
+            Map.SpawnRandomElement();
         }
+        MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > timing + MeteoDelay)
+        if(Time.time > timing + MeteoRandomDelay)
         {
             timing = Time.time;
             Meteo();
@@ -56,6 +61,7 @@ public class GameManager : MonoBehaviour
         }
         CurrentMeteoCount++;
         CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
+        MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
         if (CurrentMeteoElement == BulletElement.Neutral) CurrentMeteoElement = BulletElement.Fire;
     }
 
