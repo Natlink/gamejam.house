@@ -187,6 +187,7 @@ public class MovingEntity : MonoBehaviour
     public void Damage(int amount)
     {
         currentLife -= amount;
+        Anim.SetTrigger("Hit");
         TextPV.text = "Life: " + currentLife;
         if(currentLife <= 0)
         {
@@ -197,6 +198,7 @@ public class MovingEntity : MonoBehaviour
     void Die()
     {
         TextPV.text = "Dead";
+        
         // TODO ^^
     }
 }
