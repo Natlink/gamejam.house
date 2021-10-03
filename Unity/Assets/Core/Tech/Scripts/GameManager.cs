@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,11 @@ public class GameManager : MonoBehaviour
 
     public string GameScene;
     public string MenuScene;
+    public string VictoryScene;
 
     public WorldManager World;
+
+    public int Winner;
 
     // Start is called before the first frame update
     void Start()
@@ -35,10 +39,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(GameScene);
     }
 
-    void ReturnToMenu()
+    public void ReturnToMenu()
     {
         SceneManager.LoadScene(MenuScene);
     }
 
-
+    internal void EndGame(int winner)
+    {
+        Winner = winner;
+        SceneManager.LoadScene(VictoryScene);
+    }
 }

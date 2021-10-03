@@ -45,19 +45,21 @@ public class MovingEntity : MonoBehaviour
     public bool cheat;
 
     public const int maxLife = 12;
-    private int currentLife = maxLife;
+    public int currentLife = maxLife;
 
     public float mapDamageCooldown = 1.0f;
     private bool onMapDamageCooldown = false;
+    private WorldManager Manager;
 
     // Start is called before the first frame update
-    public void Init(HexTilemap map)
+    public void Init(HexTilemap map, WorldManager worldManager)
     {
         this.map = map;
         Rgbd = this.GetComponent<Rigidbody>();
         Anim = GetComponentInChildren<Animator>();
         TextElement.text = CurrentElement + "";
         TextPV.text = "Life: " + currentLife;
+        Manager = worldManager;
     }
 
     // Update is called once per frame
@@ -198,8 +200,9 @@ public class MovingEntity : MonoBehaviour
     void Die()
     {
         TextPV.text = "Dead";
-        
-        // TODO ^^
+        TextElement.text = "";
+        this.gameObject.SetActive(false);
+        Manager.OnCharacterDie();
     }
 }
 
