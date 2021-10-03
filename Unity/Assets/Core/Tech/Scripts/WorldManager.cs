@@ -22,7 +22,6 @@ public class WorldManager : MonoBehaviour
     public int MeteoMinDelay = 10;
 
     public int MeteoMaxDelay = 20;
-    public int MeteoDelay = 20;
     public float MeteoDelayWarning = 5;
     public float MeteoDelayExplosion = 1;
     private int MeteoRandomDelay;

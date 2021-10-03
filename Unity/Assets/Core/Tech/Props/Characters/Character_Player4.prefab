@@ -267,7 +267,7 @@ MonoBehaviour:
   TextPV: {fileID: 0}
   CurrentElement: 4
   radius: 1
-  reloadTimer: 3
+  reloadTimer: 0.75
   cheat: 1
   currentLife: 12
   mapDamageCooldown: 1

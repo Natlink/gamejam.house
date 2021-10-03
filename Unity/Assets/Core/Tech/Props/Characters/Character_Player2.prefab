@@ -103,7 +103,7 @@ MonoBehaviour:
   TextPV: {fileID: 0}
   CurrentElement: 4
   radius: 1
-  reloadTimer: 3
+  reloadTimer: 0.75
   cheat: 1
   currentLife: 12
   mapDamageCooldown: 1
@@ -184,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 5291776521411927903}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 1.36, y: 1.3599999, z: 1.3599999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 329476940920803088}
   m_RootOrder: 4
