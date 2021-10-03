@@ -137,4 +137,10 @@ public class HexTilemap : AbstractTilemap
 		return index > 0 && index < Width * Height ?
 				Cells[index] : null;
 	}
+
+	public void SpawnRandomElement()
+    {
+		//for(int i = 0)
+    }
+
 }
