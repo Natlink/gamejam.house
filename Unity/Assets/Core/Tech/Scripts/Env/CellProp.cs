@@ -14,6 +14,8 @@ public class CellProp : MonoBehaviour
 
     public GameObject[] FXs;
 
+    public CellCollider CellCollider;
+
     void Start()
     {
         Material = GetComponent<MeshRenderer>().material;
@@ -53,6 +55,7 @@ public class CellProp : MonoBehaviour
                     toSwapIndex = 0;
                     break;
                 case CellElement.Rock:
+                    CellCollider.Init(this);
                     toSwapIndex = 4;
                     break;
                 case CellElement.Wet:
