@@ -20,8 +20,8 @@ public class MovingEntity : MonoBehaviour
     public String fire3 = "Player1Fire3";
 
     public float SpeedNormal = 10;
-    public float SpeedIce = 12.5f;
-    public float SpeedLiquid = 8f;
+    public float SpeedIce = 25.0f;
+    public float SpeedLiquid = 3.0f;
 
     public float InertiaNormal = 0.5f;
     public float InertiaIce = 0.95f;
@@ -34,7 +34,7 @@ public class MovingEntity : MonoBehaviour
 
     public TextMeshProUGUI TextElement;
     public TextMeshProUGUI TextPV;
-    public BulletElement CurrentElement;
+    public BulletElement CurrentElement = BulletElement.Neutral;
 
     public int radius = 1;
 

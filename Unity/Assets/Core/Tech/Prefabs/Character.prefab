@@ -253,20 +253,22 @@ MonoBehaviour:
   fire2: Player1Fire2
   fire3: Player1Fire3
   SpeedNormal: 10
-  SpeedIce: 12.5
-  SpeedLiquid: 6
+  SpeedIce: 25
+  SpeedLiquid: 3
   InertiaNormal: 0.5
   InertiaIce: 0.95
+  Anim: {fileID: 0}
   Rgbd: {fileID: 0}
   map: {fileID: 0}
   bullet: {fileID: -2093610783650277905, guid: 113398d50d5e4204a80a062f8787a0c4, type: 3}
   angle: 0
   TextElement: {fileID: 0}
   TextPV: {fileID: 0}
-  CurrentElement: 0
+  CurrentElement: 4
   radius: 1
   reloadTimer: 3
   cheat: 0
+  currentLife: 12
   mapDamageCooldown: 1
 --- !u!1 &8105955817119351539
 GameObject:
