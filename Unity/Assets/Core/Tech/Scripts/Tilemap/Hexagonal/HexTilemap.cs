@@ -15,6 +15,8 @@ public class HexTilemap : AbstractTilemap
 	public TextMeshProUGUI TextPrefab;
 	private HexMesh Mesh;
 
+
+	public List<ElementObject> Elements;
 	
 	void Awake()
 	{
@@ -60,7 +62,8 @@ public class HexTilemap : AbstractTilemap
 	    Mesh = GetComponentInChildren<HexMesh>();
 	}
 
-	public List<HexCell> GetNeighboors(int range, HexCell center)
+
+    public List<HexCell> GetNeighboors(int range, HexCell center)
     {
 		List<HexCell> result = new List<HexCell>() { center };
 		for(int i = 0; i < range; ++i)
@@ -111,7 +114,7 @@ public class HexTilemap : AbstractTilemap
 		RaycastHit hit;
 		if (Physics.Raycast(inputRay, out hit))
 		{
-			TouchCell(GetCell(hit.point), Test.CurrentBullet, 1);
+			TouchCell(GetCell(hit.point), Enums.CurrentBullet, 1);
 		}
 	}
 
@@ -140,7 +143,19 @@ public class HexTilemap : AbstractTilemap
 
 	public void SpawnRandomElement()
     {
-		//for(int i = 0)
-    }
+		HexCell c = Cells[Random.Range(0, (Width*Height)-1)];
+		int elem = Random.Range(0, 4);
+
+		ElementObject o = Instantiate(Elements[elem], c.transform);
+		o.Map = this;
+		o.transform.position = new Vector3(o.transform.position.x, 1, o.transform.position.z);
+	}
+
+
+	internal void SpawnRandomMeteo(int meteoSize, BulletElement element)
+	{
+		HexCell c = Cells[Random.Range(0, (Width * Height) - 1)];
+		TouchCell(c, element, meteoSize);
+	}
 
 }

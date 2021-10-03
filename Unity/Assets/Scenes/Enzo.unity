@@ -258,8 +258,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ElementCountOnBoard: 4
   CurrentMeteoCount: 1
-  Map: {fileID: 0}
+  CurrentMeteoElement: 0
+  MeteoSizeMin: 1
+  MeteoSizeMax: 3
+  MeteoDelay: 5
+  Map: {fileID: 676064471}
   Players: []
+  timing: 0
 --- !u!4 &576928889
 Transform:
   m_ObjectHideFlags: 0
@@ -437,6 +442,7 @@ MonoBehaviour:
   Cells: []
   CellPrefab: {fileID: 2065827252392442688, guid: bba9c33f0c6ba794eb812e6aa35fcc90, type: 3}
   TextPrefab: {fileID: 7788473440780068587, guid: 264f2fb5d34f0f741ac6bae20a599282, type: 3}
+  Elements: []
 --- !u!23 &676064472
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -696,6 +702,7 @@ MonoBehaviour:
   SpeedNormal: 10
   SpeedIce: 12.5
   SpeedLiquid: 6
+  CurrentElement: 0
   InertiaNormal: 0.5
   InertiaIce: 0.95
   deadZone: 0.1
@@ -705,6 +712,9 @@ MonoBehaviour:
   bullet: {fileID: -2093610783650277905, guid: 113398d50d5e4204a80a062f8787a0c4, type: 3}
   reloadTimer: 3
   radius: 1
+  cheat: 0
+  Text: {fileID: 0}
+  TextPV: {fileID: 0}
 --- !u!54 &870370109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -832,7 +842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed332efea9a9f449852657bf23e40d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 1603949921}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
