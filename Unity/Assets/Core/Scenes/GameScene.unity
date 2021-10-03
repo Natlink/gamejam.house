@@ -253,18 +253,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 576928887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cb0c3b3a8b2004e82dc1fc0f7954f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 61dbc8707e864664f8b2207f8329018e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCount: 0
+  PlayerAlive: 0
   ElementCountOnBoard: 4
-  CurrentMeteoCount: 1
+  DefaultMeteoCount: 1
   CurrentMeteoElement: 0
-  MeteoSizeMin: 1
+  MeteoSizeMin: 0
   MeteoSizeMax: 3
   MeteoMinDelay: 10
   MeteoMaxDelay: 20
-  Map: {fileID: 676064471}
-  Players: []
+  Map: {fileID: 0}
+  DefaultPlayers: []
+  CurrentPlayers: []
+  PlayerSpawn: []
   timing: 0
 --- !u!4 &576928889
 Transform:

@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Enzo");
+        SceneManager.LoadScene("Lobby");
     }
 
     public void Rules()

@@ -2,59 +2,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public int ElementCountOnBoard = 4;
-    public int CurrentMeteoCount = 1;
-    public BulletElement CurrentMeteoElement = BulletElement.Fire;
-    public int MeteoSizeMin = 0;
-    public int MeteoSizeMax = 3;
+    public bool Player1;
+    public bool Player2;
+    public bool Player3;
+    public bool Player4;
 
-    public int MeteoMinDelay = 10;
-    
-    public int MeteoMaxDelay = 20;
-    private int MeteoRandomDelay;
-    
-    public HexTilemap Map;
-    public MovingEntity[] Players;
+    public string GameScene;
+    public string MenuScene;
 
-    public float timing;
+    public WorldManager World;
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
-        for(int x = 0; x < ElementCountOnBoard; ++x)
-        {
-            Map.SpawnRandomElement();
-        }
-        MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
+        DontDestroyOnLoad(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadGame(bool p1, bool p2, bool p3, bool p4)
     {
-        if(Time.time > timing + MeteoRandomDelay)
-        {
-            timing = Time.time;
-            Meteo();
-        }
+        Player1 = p1;
+        Player2 = p2;
+        Player3 = p3;
+        Player4 = p4;
+        SceneManager.LoadScene(GameScene);
     }
 
-    void Meteo()
+    void ReturnToMenu()
     {
-        for (int i = 0; i < CurrentMeteoCount; ++i)
-        {
-            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), CurrentMeteoElement);
-        }
-
-        CurrentMeteoCount++;
-        CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
-        MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
-        if (CurrentMeteoElement == BulletElement.Neutral) CurrentMeteoElement = BulletElement.Fire;
+        SceneManager.LoadScene(MenuScene);
     }
+
 
 }
