@@ -15,8 +15,10 @@ public class Bullet : MonoBehaviour
     private BulletElement Element;
 
     private MovingEntity caster;
-    
-    public void Init(MovingEntity caster, Vector3 dir, BulletElement element, HexTilemap grid)
+
+    private int Radius;
+
+    public void Init(MovingEntity caster, int radius, Vector3 dir, BulletElement element, HexTilemap grid)
     {
         this.dir = dir;
         this.caster = caster;
@@ -29,6 +31,7 @@ public class Bullet : MonoBehaviour
         Element = element;
         Grid = grid;
         Processed = false;
+        Radius = radius;
     }
 
     // Start is called before the first frame update
@@ -50,7 +53,9 @@ public class Bullet : MonoBehaviour
     public void ProcessBullet()
     {
         Processed = true;
-        Grid.TouchCell(Grid.GetCell(transform.position), Element);
+        Vector3 pos = transform.position;
+        pos.y = 0;
+        Grid.TouchCell(Grid.GetCell(pos), Element, Radius);
         Destroy(this.gameObject);
     }
 /*

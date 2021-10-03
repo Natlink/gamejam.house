@@ -14,7 +14,7 @@ public class MovingEntity : AbstractEntity
     public String fire3 = "Player1Fire3";
     public float SpeedNormal = 10;
     public float SpeedIce = 12.5f;
-    public float SpeedLiquid = 6f;
+    public float SpeedLiquid = 8f;
     public float InertiaNormal = 0.5f;
     public float InertiaIce = 0.95f;
     public float deadZone = 0.1f;
@@ -26,8 +26,9 @@ public class MovingEntity : AbstractEntity
     private float angle = 0;
 
     public float reloadTimer = 3.0f; 
-    private bool canShoot = true; 
+    private bool canShoot = true;
 
+    public int radius;
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +53,8 @@ public class MovingEntity : AbstractEntity
         if (button && canShoot)
         {
             var b = Instantiate<Bullet>(bullet);
-            b.Init(this, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
-
+            b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
+            canShoot = false;
             StartCoroutine("Reload");
         }
         button = false;
@@ -66,7 +67,6 @@ public class MovingEntity : AbstractEntity
 
     IEnumerator Reload()
     {
-        canShoot = false;
         yield return new WaitForSeconds(reloadTimer);
         canShoot = true;
         yield return null;
@@ -75,9 +75,10 @@ public class MovingEntity : AbstractEntity
     void Move()
     {
         HexCell cell = map.GetCell(Rgbd.position);
-        if (cell == null) return;
-        bool onIce = cell.Prop.CurrentElement == CellElement.Ice;
-        float speed = (onIce ? SpeedIce : SpeedNormal);
+        CellElement elem = cell.Prop.CurrentElement;
+        bool onIce = cell != null && elem == CellElement.Ice;
+        bool inLiquid = cell != null && (elem == CellElement.Lava || elem == CellElement.Wet);
+        float speed = onIce ? SpeedIce : inLiquid ? SpeedLiquid : SpeedNormal;
         float xDirection = Input.GetAxis(moveX) * speed;
         float zDirection = Input.GetAxis(moveZ) * speed;
         Vector2 direction = new Vector2(xDirection, zDirection);
