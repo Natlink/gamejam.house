@@ -98,11 +98,12 @@ public class CellProp : MonoBehaviour
             foreach (string s in elems)
             {
                 Material.SetFloat(s, 0);
-                Material.SetFloat("_Transparency", 0);
+                Material.SetFloat("_Transparency", 1);
             }
         }
     }
 
+    //private List<string> elems = new List<string>() { "_Flammes", "_Glace", "_Lave", "_Flaque", "_Rocher" };
     private void SwitchToNeutral()
     {
         CurrentElement = CellElement.Neutral;

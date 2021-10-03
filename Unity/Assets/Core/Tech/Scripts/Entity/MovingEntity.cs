@@ -26,6 +26,7 @@ public class MovingEntity : MonoBehaviour
     public float InertiaNormal = 0.5f;
     public float InertiaIce = 0.95f;
 
+    public Animator Anim;
     public Rigidbody Rgbd;
     public HexTilemap map;
     public Bullet bullet;
@@ -53,6 +54,7 @@ public class MovingEntity : MonoBehaviour
     public void Start()
     {
         Rgbd = this.GetComponent<Rigidbody>();
+        Anim = GetComponentInChildren<Animator>();
         TextElement.text = CurrentElement + "";
         TextPV.text = "Life: " + currentLife;
     }
@@ -106,6 +108,7 @@ public class MovingEntity : MonoBehaviour
         float xDirection = Input.GetAxis(moveX) * speed;
         float zDirection = Input.GetAxis(moveZ) * speed;
 
+        Anim.SetBool("Running", !(xDirection == 0 && zDirection == 0));
         bool move = deadZone * deadZone < (new Vector2(xDirection, zDirection)).sqrMagnitude;
 
         xDirection = move ? xDirection : 0;

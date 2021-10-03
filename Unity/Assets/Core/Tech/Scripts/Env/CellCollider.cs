@@ -31,7 +31,7 @@ public class CellCollider : MonoBehaviour
         if (ColliderEnabled && collision.gameObject.TryGetComponent(out e))
         {
             Prop.HitBullet(BulletElement.Earth);
-            e.Rgbd.AddForce(Random.Range(-2, 2), 500, Random.Range(-2, 2));
+            e.Rgbd.AddForce(Random.Range(-2, 2), 100, Random.Range(-2, 2));
         }
     }
 
