@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: c66b2bbe51b959840ab81052dafd9a39, type: 3}
   m_ShaderKeywords: _ACTIVATEEFFECT3_ON _ACTIVATEEFFECT_ON _ISPANNING4_ON _USECUSTOMVERTEXSTREAMS1X_ON
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
