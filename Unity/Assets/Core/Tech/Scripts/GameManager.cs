@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
 
     public int ElementCountOnBoard = 4;
     public int CurrentMeteoCount = 1;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         for(int x = 0; x < ElementCountOnBoard; ++x)
         {
             Map.SpawnRandomElement();
@@ -44,21 +46,11 @@ public class GameManager : MonoBehaviour
 
     void Meteo()
     {
-        switch (CurrentMeteoElement)
+        for (int i = 0; i < CurrentMeteoCount; ++i)
         {
-            case BulletElement.Water:
-                for (int i = 0; i < CurrentMeteoCount * 6; ++i)
-                {
-                    Map.SpawnRandomMeteo(0, CurrentMeteoElement);
-                }
-                break;
-            default:
-                for (int i = 0; i < CurrentMeteoCount; ++i)
-                {
-                    Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), CurrentMeteoElement);
-                }
-                break;
+            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), CurrentMeteoElement);
         }
+
         CurrentMeteoCount++;
         CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
         MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
