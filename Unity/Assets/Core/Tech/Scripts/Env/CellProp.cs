@@ -151,7 +151,7 @@ public class CellProp : MonoBehaviour
         switch (CurrentElement)
         {
             case CellElement.Flamme:
-                Explosion();
+                CurrentElement = CellElement.Neutral;
                 break;
             case CellElement.Rock:
                 CurrentElement = CellElement.Neutral;
