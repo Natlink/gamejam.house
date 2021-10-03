@@ -107,7 +107,7 @@ public class WorldManager : MonoBehaviour
     public void OnCharacterDie()
     {
         PlayerCount--;
-        if(PlayerCount == 0)
+        if(PlayerCount <= 1)
         {
             QuitGame();
         }

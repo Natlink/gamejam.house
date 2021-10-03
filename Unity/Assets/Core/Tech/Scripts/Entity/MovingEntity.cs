@@ -162,8 +162,11 @@ public class MovingEntity : MonoBehaviour
         if(onMapDamagingCell && !onMapDamageCooldown)
         {
             Damage(1);
-            onMapDamageCooldown = true;
-            StartCoroutine("MapDamageCooldown");
+            if (currentLife > 0)
+            {
+                onMapDamageCooldown = true;
+                StartCoroutine("MapDamageCooldown");
+            }
         }
     }
 
