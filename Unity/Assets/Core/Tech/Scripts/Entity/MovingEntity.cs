@@ -52,7 +52,7 @@ public class MovingEntity : AbstractEntity
         if (button && canShoot)
         {
             var b = Instantiate<Bullet>(bullet);
-            b.Init(Rgbd.position, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
+            b.Init(this, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
 
             StartCoroutine("Reload");
         }
