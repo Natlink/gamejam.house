@@ -15495,6 +15495,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c378e2f496376524ea159fdf981e6e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09918c394ef2c5444a73f0336dfa46e2, type: 2}
     - target: {fileID: 919132149155446097, guid: c378e2f496376524ea159fdf981e6e65, type: 3}
       propertyPath: m_Name
       value: tongrandmort
@@ -17261,11 +17265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa00b2ce0fb08cc4693853d75cd5f610, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa00b2ce0fb08cc4693853d75cd5f610, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa00b2ce0fb08cc4693853d75cd5f610, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -17279,6 +17283,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fa00b2ce0fb08cc4693853d75cd5f610, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7608a90e668e105498785c275382e917, type: 2}
     - target: {fileID: 919132149155446097, guid: fa00b2ce0fb08cc4693853d75cd5f610, type: 3}
       propertyPath: m_Name
       value: lulugroumette
