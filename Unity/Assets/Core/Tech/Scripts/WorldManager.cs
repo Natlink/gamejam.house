@@ -97,14 +97,23 @@ public class WorldManager : MonoBehaviour
 
     void Meteo()
     {
-        GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
-      //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
-        for (int i = 0; i < CurrentMeteoCount; ++i)
+        if(CurrentMeteoElement == BulletElement.Neutral)
         {
-            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, MeteoFX, null);
-        }
+            GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
+            //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
+            bool first = true;
+            for (int i = 0; i < CurrentMeteoCount; ++i)
+            {
+                Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, 
+                    CurrentMeteoElement==BulletElement.Wind?
+                        first? MeteoFX:null: 
+                    MeteoFX,
+                    null);
+                first = false;
+            }
 
-        CurrentMeteoCount++;
+            CurrentMeteoCount++;
+        }
         CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
         MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
         if (CurrentMeteoElement == BulletElement.Neutral) CurrentMeteoElement = BulletElement.Fire;
