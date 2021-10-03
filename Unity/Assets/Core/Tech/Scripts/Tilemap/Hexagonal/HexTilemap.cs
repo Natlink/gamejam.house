@@ -31,32 +31,19 @@ public class HexTilemap : AbstractTilemap
 		}
 		foreach(HexCell c in Cells)
         {
+			int xShift = co.Z / 2;
 			c.Neighboors = new List<HexCell>();
 			var co = c.coordinates;
-			int max = Width * Height, cur = 0;
-			c.Neighboors.Add( (cur = ((co.X - 1) + co.Z / 2) + (co.Z * Width)) >= 0 && cur < max ? Cells[cur] : null);
-			c.Neighboors.Add((cur = ((co.X + 1) + co.Z / 2) + (co.Z * Width)) >= 0 && cur < max ? Cells[cur] : null);
-	
-			if(co.Z % 2 == 0)
-			{
-				c.Neighboors.Add((cur = ((co.X - 1) + co.Z / 2) + ((co.Z - 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
-				c.Neighboors.Add((cur = ((co.X) + co.Z / 2) + ((co.Z - 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
+			int max = Width * Height, x = 0, z = 0;
+			c.Neighboors.Add((x = co.X - 1 + xShift) >= 0 && x < Width ? Cells[x + co.Z * Width] : null);
+			c.Neighboors.Add((x = co.X + 1 + xShift) >= 0 && x < Width ? Cells[x + co.Z * Width] : null);
 
-				c.Neighboors.Add((cur = ((co.X - 1) + co.Z / 2) + ((co.Z + 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
-				c.Neighboors.Add((cur = ((co.X) + co.Z / 2) + ((co.Z + 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
-			}
-			else
-			{
-				c.Neighboors.Add((cur = ((co.X) + co.Z / 2) + ((co.Z - 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
-				c.Neighboors.Add((cur = ((co.X +1 ) + co.Z / 2) + ((co.Z - 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
+			int leftX = (co.Z % 2 == 0) ? co.X + xShift - 1 : co.X + xShift;
+			c.Neighboors.Add((x = leftX) >= 0 && x < Width && (z = co.Z - 1) >= 0 && z < Height ? Cells[x + z * Width] : null);
+			c.Neighboors.Add((x = leftX + 1) >= 0 && x < Width && (z = co.Z - 1) >= 0 && z < Height ? Cells[x + z * Width] : null);
 
-				c.Neighboors.Add((cur = ((co.X) + co.Z / 2) + ((co.Z + 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
-				c.Neighboors.Add((cur = ((co.X +1) + co.Z / 2) + ((co.Z + 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
-			}
-			if (co.Z % 2 == 0)
-            {
-
-            }
+			c.Neighboors.Add((x = leftX) >= 0 && x < Width && (z = co.Z + 1) >= 0 && z < Height ? Cells[x + z * Width] : null);
+			c.Neighboors.Add((x = leftX + 1) >= 0 && x < Width && (z = co.Z + 1) >= 0 && z < Height ? Cells[x + z * Width] : null);
 			c.Neighboors.RemoveAll((c) => c == null);
         }
 	    Mesh = GetComponentInChildren<HexMesh>();
@@ -136,9 +123,11 @@ public class HexTilemap : AbstractTilemap
 
 	public HexCell GetCell(HexCoordinates coordinates)
     {
-		int index = coordinates.X + coordinates.Z * Width + coordinates.Z / 2;
-		return index > 0 && index < Width * Height ?
-				Cells[index] : null;
+		int iX = coordinates.X + coordinates.Z / 2;
+		int iZ = coordinates.Z;
+		return iX >= 0 && iX < Width
+			&& iZ >= 0 && iZ < Height
+			? Cells[iX + iZ * Width] : null;
 	}
 
 	public void SpawnRandomElement()
