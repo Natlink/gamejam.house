@@ -39,7 +39,7 @@ public class MovingEntity : MonoBehaviour
     public int radius = 1;
 
     private bool button = false;
-    public float reloadTimer = 3.0f;
+    public float reloadTimer = 0.5f;
     private bool canShoot = true;
 
     public bool cheat;

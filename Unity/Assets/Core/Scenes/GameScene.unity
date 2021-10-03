@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4234221, g: 0.47081453, b: 0.5131217, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,14 +409,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCount: 0
   PlayerAlive: 0
-  ElementCountOnBoard: 4
+  ElementCountOnBoard: 6
   DefaultMeteoCount: 1
-  CurrentMeteoElement: 0
-  MeteoSizeMin: 0
-  MeteoSizeMax: 3
+  CurrentMeteoElement: 4
+  MeteoSizeMin: 1
+  MeteoSizeMax: 2
   MeteoMinDelay: 5
   MeteoMaxDelay: 5
-  MeteoDelay: 20
   MeteoDelayWarning: 5
   MeteoDelayExplosion: 0.5
   Map: {fileID: 676064471}
