@@ -1,6 +1,7 @@
  using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MovingEntity : AbstractEntity
@@ -15,6 +16,19 @@ public class MovingEntity : AbstractEntity
     public float SpeedNormal = 10;
     public float SpeedIce = 12.5f;
     public float SpeedLiquid = 8f;
+
+    public BulletElement CurrentElement;
+
+    internal bool CanPickElement(BulletElement element)
+    {
+        if (CurrentElement == BulletElement.Neutral)
+        {
+            CurrentElement = element;
+            return true;
+        }
+        return false;
+    }
+
     public float InertiaNormal = 0.5f;
     public float InertiaIce = 0.95f;
     public float deadZone = 0.1f;
@@ -25,10 +39,13 @@ public class MovingEntity : AbstractEntity
     public Bullet bullet;
     private float angle = 0;
 
-    public float reloadTimer = 3.0f; 
+    public float reloadTimer = 1.0f; 
     private bool canShoot = true;
 
     public int radius;
+    public bool cheat;
+    public TextMeshProUGUI Text;
+    public TextMeshProUGUI TextPV;
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +67,12 @@ public class MovingEntity : AbstractEntity
             // Debug.Log(xAim + ", " + zAim + ", " + angle);
         }
 
-        if (button && canShoot)
+        if (button && canShoot && CurrentElement != BulletElement.Neutral)
         {
             var b = Instantiate<Bullet>(bullet);
-            b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
+            b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), CurrentElement, map);
             canShoot = false;
+            CurrentElement = BulletElement.Neutral;
             StartCoroutine("Reload");
         }
         button = false;
@@ -62,6 +80,30 @@ public class MovingEntity : AbstractEntity
 
     private void Update()
     {
+        if (cheat)
+        {
+            if (Input.GetKeyDown("joystick button 0"))
+            {
+                CurrentElement = BulletElement.Fire;
+                Text.text = CurrentElement + "";
+            }
+            if (Input.GetKeyDown("joystick button 1"))
+            {
+                CurrentElement = BulletElement.Wind;
+                Text.text = CurrentElement + "";
+            }
+            if (Input.GetKeyDown("joystick button 2"))
+            {
+                CurrentElement = BulletElement.Earth;
+                Text.text = CurrentElement + "";
+            }
+            if (Input.GetKeyDown("joystick button 3"))
+            {
+                CurrentElement = BulletElement.Water;
+                Text.text = CurrentElement + "";
+            }
+        }
+
         button |= Input.GetButtonDown(fire1);
     }
 
@@ -94,5 +136,6 @@ public class MovingEntity : AbstractEntity
         
         // Debug.Log("old : " + prevVelocity + ", target : " + targetVelocity + ", new : " + Rgbd.velocity);
     }
+
 }
 
