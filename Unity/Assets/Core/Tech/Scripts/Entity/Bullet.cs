@@ -14,19 +14,21 @@ public class Bullet : MonoBehaviour
     private bool Processed;
     private BulletElement Element;
 
-    private Vector3 previousVelocity;
+    private MovingEntity caster;
     
-    public void Init(Vector3 player, Vector3 dir, BulletElement element, HexTilemap grid)
+    public void Init(MovingEntity caster, Vector3 dir, BulletElement element, HexTilemap grid)
     {
         this.dir = dir;
+        this.caster = caster;
         Rgbd = this.GetComponent<Rigidbody>();
-        Vector3 pos = player + dir;
+        Vector3 pos = caster.transform.position + dir;
         pos.y += 1;
         Rgbd.position = pos;
         Rgbd.velocity = dir * BulletSpeed;
-        PlayerPosition = player;
+        PlayerPosition = caster.transform.position;
         Element = element;
         Grid = grid;
+        Processed = false;
     }
 
     // Start is called before the first frame update
@@ -36,13 +38,13 @@ public class Bullet : MonoBehaviour
 
     public void FixedUpdate()
     {
-        
+        /*
         if (ShouldProcess())
         {
-            Debug.Log( (Math.Abs(previousVelocity.x) + Math.Abs(previousVelocity.z)) +" " + (Math.Abs(Rgbd.velocity.z) - Math.Abs(Rgbd.velocity.x)));
             ProcessBullet();
         }
         previousVelocity = Rgbd.velocity;
+        */
     }
 
     public void ProcessBullet()
@@ -51,12 +53,19 @@ public class Bullet : MonoBehaviour
         Grid.TouchCell(Grid.GetCell(transform.position), Element);
         Destroy(this.gameObject);
     }
-
+/*
     public bool ShouldProcess()
     {
         float difference = Math.Abs(previousVelocity.x) + Math.Abs(previousVelocity.z) - Math.Abs(Rgbd.velocity.z) - Math.Abs(Rgbd.velocity.x);
         return Vector3.Distance(PlayerPosition, this.transform.position) > BulletDistance ||
             difference > 5;
+    }
+    */
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject != caster.gameObject && !Processed)
+            ProcessBullet();
     }
 }
 

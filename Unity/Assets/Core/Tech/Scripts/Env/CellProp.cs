@@ -108,16 +108,24 @@ public class CellProp : MonoBehaviour
                     break;
             }
         }
-
-        string elem = elems[toSwapIndex];
-
-        foreach (string s in elems)
+        if(toSwapIndex != -1)
         {
-            if (s.Equals(elem))
+            string elem = elems[toSwapIndex];
+
+            foreach (string s in elems)
             {
-                Material.SetFloat(elem, 1);
+                if (s.Equals(elem))
+                {
+                    Material.SetFloat(elem, 1);
+                }
+                else
+                {
+                    Material.SetFloat(s, 0);
+                }
             }
-            else
+        }
+        else{
+            foreach (string s in elems)
             {
                 Material.SetFloat(s, 0);
             }
