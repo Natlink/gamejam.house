@@ -28,7 +28,7 @@ public class HexTilemap : AbstractTilemap
 			}
 		}
 		foreach(HexCell c in Cells)
-        { //0 droite 1 gauche
+        {
 			c.Neighboors = new List<HexCell>();
 			var co = c.coordinates;
 			int max = Width * Height, cur = 0;
@@ -51,35 +51,10 @@ public class HexTilemap : AbstractTilemap
 				c.Neighboors.Add((cur = ((co.X) + co.Z / 2) + ((co.Z + 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
 				c.Neighboors.Add((cur = ((co.X +1) + co.Z / 2) + ((co.Z + 1) * Width)) >= 0 && cur < max ? Cells[cur] : null);
 			}
-			/*
-			c.Neighboors.Add(Cells[co.X + (co.Z * Height)]);
-			c.Neighboors.Add(Cells[co.X+1 + (co.Z * Height)]);
-			*/
 			if (co.Z % 2 == 0)
             {
 
             }
-
-			/*
-			if (co.Z%2 != 0)
-            {
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X, co.Z -1)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X+1, co.Z-1)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X-1, co.Z)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X+1, co.Z)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X, co.Z+1)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X+1, co.Z+1)));
-            }
-            else
-            {
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X-1, co.Z - 1)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X, co.Z - 1)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X - 1, co.Z)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X + 1, co.Z)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X-1, co.Z + 1)));
-				c.Neighboors.Add(GetCell(HexCoordinates.FromOffsetCoordinates(co.X, co.Z + 1)));
-			}
-			*/
 			c.Neighboors.RemoveAll((c) => c == null);
         }
 	    Mesh = GetComponentInChildren<HexMesh>();

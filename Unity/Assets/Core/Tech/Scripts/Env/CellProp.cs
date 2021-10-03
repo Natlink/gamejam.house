@@ -8,12 +8,12 @@ public class CellProp : MonoBehaviour
     public CellElement PreviousElement;
     public CellElement CurrentElement;
     private Material Material;
-    private bool SwapElem;
 
     private List<string> elems = new List<string>() { "_Flammes", "_Glace", "_Lave", "_Flaque", "_Rocher" };
     private int toSwapIndex = -1;
 
-    // Start is called before the first frame update
+    public GameObject[] FXs;
+
     void Start()
     {
         Material = GetComponent<MeshRenderer>().material;
@@ -21,45 +21,7 @@ public class CellProp : MonoBehaviour
 
     private float timeElapsed;
     public float lerpDuration = 1;
-    /*
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(toSwapIndex != -1)
-        {
-            string elem = elems[toSwapIndex];
-            if (timeElapsed < lerpDuration)
-            {
-                timeElapsed += Time.deltaTime;
-                foreach (string s in elems)
-                {
-                    if (s.Equals(elem))
-                    {
-                        float valueToLerp = Mathf.Lerp(Material.GetFloat(elem), 1, timeElapsed / lerpDuration);
-                        Material.SetFloat(elem, valueToLerp);
-                    }
-                    else
-                    {
-                        float valueToLerp = Mathf.Lerp(Material.GetFloat(elem), 0, timeElapsed / lerpDuration);
-                        Material.SetFloat(s, valueToLerp);
-                    }
-                }
-            }
-            else
-            {
-                toSwapIndex = -1;
-            }
-        }
-        else
-        {/*
-            foreach (string s in elems)
-            {
-                float valueToLerp = Mathf.Lerp(Material.GetFloat(s), 0, timeElapsed / lerpDuration);
-                Material.SetFloat(s, valueToLerp);
-            }
-        }
-    }
-*/
+
     public void HitBullet(BulletElement bullet)
     {
         Material = GetComponent<MeshRenderer>().material;
@@ -85,7 +47,6 @@ public class CellProp : MonoBehaviour
         if(_previous != CurrentElement)
         {
             PreviousElement = _previous;
-            SwapElem = true;
             switch (CurrentElement)
             {
                 case CellElement.Flamme:
@@ -111,6 +72,9 @@ public class CellProp : MonoBehaviour
         if(toSwapIndex != -1)
         {
             string elem = elems[toSwapIndex];
+            foreach (GameObject o in FXs) o.SetActive(false);
+
+            FXs[toSwapIndex].SetActive(true);
 
             foreach (string s in elems)
             {
@@ -125,6 +89,7 @@ public class CellProp : MonoBehaviour
             }
         }
         else{
+            foreach (GameObject o in FXs) o.SetActive(false);
             foreach (string s in elems)
             {
                 Material.SetFloat(s, 0);
@@ -137,7 +102,7 @@ public class CellProp : MonoBehaviour
         CurrentElement = CellElement.Neutral;
         toSwapIndex = -1;
     }
-    //{ "_Flammes", "_Glace", "_Lave", "_Flaque", "_Rocher" };
+    //{ "_Flammes", "_Glace", "_Lave",, "_Rocher",  "_Flaque" };
     private void SwitchToWater()
     {
         switch (CurrentElement)
