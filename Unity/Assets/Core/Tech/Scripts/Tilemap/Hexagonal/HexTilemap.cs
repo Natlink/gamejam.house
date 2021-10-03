@@ -141,10 +141,35 @@ public class HexTilemap : AbstractTilemap
 	}
 
 
-	internal void SpawnRandomMeteo(int meteoSize, BulletElement element)
+	internal void SpawnRandomMeteo(int meteoSize, float meteoDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX, GameObject meteoWarningFX)
 	{
+		GameObject explo = meteoFX == null ? null:Instantiate(meteoFX);
+		GameObject warning = meteoWarningFX == null ? null:Instantiate(meteoWarningFX);
 		HexCell c = Cells[Random.Range(0, (Width * Height) - 1)];
+		if(explo!=null && element != BulletElement.Wind)
+			explo.transform.position = c.transform.position;
+
+	//	StartCoroutine(warningFX(meteoDelay, c, element, meteoSize, warning));
+		StartCoroutine(explosionFX(meteoDelayFX, c, element, meteoSize, explo));
+	}
+
+ 
+	IEnumerator explosionFX(float secs, HexCell c, BulletElement element, int meteoSize, GameObject explosionFX)
+	{
+		yield return new WaitForSeconds(secs);
+		if (explosionFX != null)
+		{
+			Destroy(explosionFX);
+		}
 		TouchCell(c, element, meteoSize);
+	}
+
+	IEnumerator warningFX(float secs, HexCell c, BulletElement element, int meteoSize, GameObject meteoWarningFX)
+	{
+		yield return new WaitForSeconds(secs);
+		if(meteoWarningFX != null)
+		Destroy(meteoWarningFX);
+		//TouchCell(c, element, meteoSize);
 	}
 
 }
