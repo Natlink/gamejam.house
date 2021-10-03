@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
@@ -17,6 +18,9 @@ public class HexCell : MonoBehaviour
     public List<int> Triangles;
 
     public CellProp Prop;
+
+    public List<HexCell> Neighboors;
+   
 
     void Awake()
     {
@@ -70,10 +74,8 @@ public struct HexCoordinates
 {
 
     [SerializeField]
-    public int X { get; private set; }
+    public int X, Z;
 
-    [SerializeField]
-    public int Z { get; private set; }
     public int Y
     {
         get

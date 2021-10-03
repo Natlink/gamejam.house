@@ -26,8 +26,9 @@ public class MovingEntity : AbstractEntity
     private float angle = 0;
 
     public float reloadTimer = 3.0f; 
-    private bool canShoot = true; 
+    private bool canShoot = true;
 
+    public int radius;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class MovingEntity : AbstractEntity
         if (button && canShoot)
         {
             var b = Instantiate<Bullet>(bullet);
-            b.Init(this, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
+            b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
 
             StartCoroutine("Reload");
         }
@@ -75,8 +76,7 @@ public class MovingEntity : AbstractEntity
     void Move()
     {
         HexCell cell = map.GetCell(Rgbd.position);
-        if (cell == null) return;
-        bool onIce = cell.Prop.CurrentElement == CellElement.Ice;
+        bool onIce = cell != null && cell.Prop.CurrentElement == CellElement.Ice;
         float speed = (onIce ? SpeedIce : SpeedNormal);
         float xDirection = Input.GetAxis(moveX) * speed;
         float zDirection = Input.GetAxis(moveZ) * speed;
