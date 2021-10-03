@@ -14,7 +14,7 @@ public class MovingEntity : AbstractEntity
     public String fire3 = "Player1Fire3";
     public float SpeedNormal = 10;
     public float SpeedIce = 12.5f;
-    public float SpeedLiquid = 6f;
+    public float SpeedLiquid = 8f;
     public float InertiaNormal = 0.5f;
     public float InertiaIce = 0.95f;
     public float deadZone = 0.1f;
@@ -54,7 +54,7 @@ public class MovingEntity : AbstractEntity
         {
             var b = Instantiate<Bullet>(bullet);
             b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), Test.CurrentBullet, map);
-
+            canShoot = false;
             StartCoroutine("Reload");
         }
         button = false;
@@ -67,7 +67,6 @@ public class MovingEntity : AbstractEntity
 
     IEnumerator Reload()
     {
-        canShoot = false;
         yield return new WaitForSeconds(reloadTimer);
         canShoot = true;
         yield return null;
@@ -76,8 +75,10 @@ public class MovingEntity : AbstractEntity
     void Move()
     {
         HexCell cell = map.GetCell(Rgbd.position);
-        bool onIce = cell != null && cell.Prop.CurrentElement == CellElement.Ice;
-        float speed = (onIce ? SpeedIce : SpeedNormal);
+        CellElement elem = cell.Prop.CurrentElement;
+        bool onIce = cell != null && elem == CellElement.Ice;
+        bool inLiquid = cell != null && (elem == CellElement.Lava || elem == CellElement.Wet);
+        float speed = onIce ? SpeedIce : inLiquid ? SpeedLiquid : SpeedNormal;
         float xDirection = Input.GetAxis(moveX) * speed;
         float zDirection = Input.GetAxis(moveZ) * speed;
         Vector2 direction = new Vector2(xDirection, zDirection);
