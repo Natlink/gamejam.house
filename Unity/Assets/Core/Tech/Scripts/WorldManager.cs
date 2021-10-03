@@ -9,7 +9,7 @@ public class WorldManager : MonoBehaviour
     public static WorldManager Instance;
 
     public int PlayerCount;
-
+    
     public int PlayerAlive;
 
     public int ElementCountOnBoard = 4;
@@ -46,7 +46,7 @@ public class WorldManager : MonoBehaviour
             CurrentPlayers[0].TextElement = Player1Spell;
             CurrentPlayers[0].TextPV = Player1Life;
             PlayerCount++;
-            CurrentPlayers[0].Init(Map);
+            CurrentPlayers[0].Init(Map, this);
         }
         if (GameManager.Instance.Player2)
         {
@@ -54,7 +54,7 @@ public class WorldManager : MonoBehaviour
             CurrentPlayers[1].TextElement = Player2Spell;
             CurrentPlayers[1].TextPV = Player2Life;
             PlayerCount++;
-            CurrentPlayers[1].Init(Map);
+            CurrentPlayers[1].Init(Map, this);
         }
         if (GameManager.Instance.Player3)
         {
@@ -62,7 +62,7 @@ public class WorldManager : MonoBehaviour
             CurrentPlayers[2].TextElement = Player3Spell;
             CurrentPlayers[2].TextPV = Player3Life;
             PlayerCount++;
-            CurrentPlayers[2].Init(Map);
+            CurrentPlayers[2].Init(Map, this);
         }
         if (GameManager.Instance.Player4)
         {
@@ -70,7 +70,7 @@ public class WorldManager : MonoBehaviour
             CurrentPlayers[3].TextElement = Player4Spell;
             CurrentPlayers[3].TextPV = Player4Life;
             PlayerCount++;
-            CurrentPlayers[3].Init(Map);
+            CurrentPlayers[3].Init(Map, this);
         }
 
         CurrentMeteoCount = DefaultMeteoCount;
@@ -104,5 +104,24 @@ public class WorldManager : MonoBehaviour
         if (CurrentMeteoElement == BulletElement.Neutral) CurrentMeteoElement = BulletElement.Fire;
     }
 
+    public void OnCharacterDie()
+    {
+        PlayerCount--;
+        if(PlayerCount == 0)
+        {
+            QuitGame();
+        }
+    }
+
+    public void QuitGame()
+    {
+        int winner = -1;
+        if (CurrentPlayers[0] != null && CurrentPlayers[0].currentLife > 0)  winner = 0;
+        if (CurrentPlayers[1] != null && CurrentPlayers[1].currentLife > 0)  winner = 1;
+        if (CurrentPlayers[2] != null && CurrentPlayers[2].currentLife > 0)  winner = 2;
+        if (CurrentPlayers[3] != null && CurrentPlayers[3].currentLife > 0)  winner = 3;
+
+        GameManager.Instance.EndGame(winner);
+    }
 
 }
