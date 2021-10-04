@@ -409,13 +409,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCount: 0
   PlayerAlive: 0
-  ElementCountOnBoard: 6
+  ElementCountOnBoard: 10
   DefaultMeteoCount: 1
   CurrentMeteoElement: 4
   MeteoSizeMin: 1
-  MeteoSizeMax: 2
-  MeteoMinDelay: 5
-  MeteoMaxDelay: 5
+  MeteoSizeMax: 1
+  MeteoMinDelay: 10
+  MeteoMaxDelay: 20
   MeteoDelayWarning: 5
   MeteoDelayExplosion: 0.5
   Map: {fileID: 676064471}
