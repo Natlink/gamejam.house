@@ -271,7 +271,7 @@ MonoBehaviour:
   reloadTimer: 0.75
   shootingSound: {fileID: 0}
   cheat: 0
-  currentLife: 12
+  currentLife: 8
   mapDamageCooldown: 1
 --- !u!82 &-6387789553731937689
 AudioSource:
