@@ -41,6 +41,7 @@ public class MovingEntity : MonoBehaviour
     private bool button = false;
     public float reloadTimer = 0.5f;
     private bool canShoot = true;
+    public AudioSource shootingSound;
 
     public bool cheat;
 
@@ -145,6 +146,7 @@ public class MovingEntity : MonoBehaviour
             CurrentElement = BulletElement.Neutral;
             TextElement.text = CurrentElement + "";
             StartCoroutine("Reload");
+            shootingSound.Play();
         }
         button = false;
     }
