@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enums : MonoBehaviour
 {
     public static BulletElement CurrentBullet = BulletElement.Neutral;
+
 }
 
 public enum BulletElement

@@ -153,14 +153,16 @@ public class HexTilemap : AbstractTilemap
  
 	IEnumerator explosionFX(float secsWarning, float secsExplosion, HexCell c, BulletElement element, int meteoSize, GameObject meteoWarningFX, GameObject explosionFX, bool first)
 	{
-		GameObject warning = meteoWarningFX == null ? null : Instantiate(meteoWarningFX);
 		List<GameObject> warningList = new List<GameObject>();
-		foreach(HexCell cc in GetNeighboors(meteoSize, c))
-        {
-			GameObject o = Instantiate(warning, cc.transform);
-			o.transform.position = new Vector3(o.transform.position.x, 0.5f, o.transform.position.z);
-			warningList.Add(o);
-        }
+		if(meteoWarningFX != null)
+		{
+			foreach (HexCell cc in GetNeighboors(meteoSize, c))
+			{
+				GameObject o = Instantiate(meteoWarningFX, cc.transform);
+				o.transform.position = new Vector3(cc.transform.position.x, 0.5f, cc.transform.position.z);
+				warningList.Add(o);
+			}
+		}
 		yield return new WaitForSeconds(secsWarning);
 		foreach (GameObject o in warningList) Destroy(o);
 
