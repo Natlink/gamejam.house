@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.00002, y: -1.9499}
-  m_SizeDelta: {x: 135, y: 144.5042}
+  m_AnchoredPosition: {x: 38.010967, y: -1.9499}
+  m_SizeDelta: {x: 169.0219, y: 144.5042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &148049295
 CanvasRenderer:
@@ -286,9 +286,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '8/8
-
-    Fire'
+  m_Text: 8/8
 --- !u!1 &154768483
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,8 +748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.00002, y: -1.9499}
-  m_SizeDelta: {x: 135, y: 144.5042}
+  m_AnchoredPosition: {x: 38.010967, y: -1.9499}
+  m_SizeDelta: {x: 169.0219, y: 144.5042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &652121498
 CanvasRenderer:
@@ -794,9 +792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '8/8
-
-    Fire'
+  m_Text: 8/8
 --- !u!1 &676064470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,8 +1819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.00002, y: -1.9499}
-  m_SizeDelta: {x: 135, y: 144.5042}
+  m_AnchoredPosition: {x: 38.010967, y: -1.9499}
+  m_SizeDelta: {x: 169.0219, y: 144.5042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1067989721
 CanvasRenderer:
@@ -1867,9 +1863,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '8/8
-
-    Fire'
+  m_Text: 8/8
 --- !u!1 &1077209417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,8 +1898,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -1.9499}
-  m_SizeDelta: {x: 135, y: 144.5042}
+  m_AnchoredPosition: {x: 38.010967, y: -1.9499}
+  m_SizeDelta: {x: 169.0219, y: 144.5042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1077209419
 CanvasRenderer:
@@ -1948,9 +1942,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '8/8
-
-    Fire'
+  m_Text: 8/8
 --- !u!1 &1182211686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1413746677
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2388,7 +2380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1535396122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,7 +2458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1538381442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2649,7 +2641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1899045583
 RectTransform:
   m_ObjectHideFlags: 0
