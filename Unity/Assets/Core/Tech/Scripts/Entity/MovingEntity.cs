@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovingEntity : MonoBehaviour
 {
@@ -32,8 +33,8 @@ public class MovingEntity : MonoBehaviour
     public Bullet bullet;
     public float angle = 0;
 
-    public TextMeshProUGUI TextElement;
-    public TextMeshProUGUI TextPV;
+    public Image ElementSprite;
+    public Text TextPV;
     public BulletElement CurrentElement = BulletElement.Neutral;
 
     public int radius = 1;
@@ -52,15 +53,17 @@ public class MovingEntity : MonoBehaviour
     public float damageCooldown = 0.75f;
     private bool onDamageCooldown = false;
     private WorldManager Manager;
+    private Sprite[] ElementSprites;
 
     // Start is called before the first frame update
-    public void Init(HexTilemap map, WorldManager worldManager)
+    public void Init(HexTilemap map, WorldManager worldManager, Sprite[] elementSprites)
     {
         this.map = map;
         Rgbd = this.GetComponent<Rigidbody>();
         Anim = GetComponentInChildren<Animator>();
-        TextElement.text = CurrentElement + "";
-        TextPV.text = "Life: " + currentLife;
+        ElementSprites = elementSprites;
+        ElementSprite.color = new Color(0, 0, 0, 0);
+        TextPV.text = currentLife+"/8";
         Manager = worldManager;
     }
 
@@ -82,22 +85,26 @@ public class MovingEntity : MonoBehaviour
             if (Input.GetKeyDown("joystick button 0"))
             {
                 CurrentElement = BulletElement.Fire;
-                TextElement.text = CurrentElement + "";
+                ElementSprite.sprite = ElementSprites[(int)BulletElement.Fire];
+                ElementSprite.color = new Color(100, 100, 100, 100);
             }
             if (Input.GetKeyDown("joystick button 1"))
             {
                 CurrentElement = BulletElement.Wind;
-                TextElement.text = CurrentElement + "";
+                ElementSprite.sprite = ElementSprites[(int)BulletElement.Wind];
+                ElementSprite.color = new Color(100, 100, 100, 100);
             }
             if (Input.GetKeyDown("joystick button 2"))
             {
                 CurrentElement = BulletElement.Earth;
-                TextElement.text = CurrentElement + "";
+                ElementSprite.sprite = ElementSprites[(int)BulletElement.Earth];
+                ElementSprite.color = new Color(100, 100, 100, 100);
             }
             if (Input.GetKeyDown("joystick button 3"))
             {
                 CurrentElement = BulletElement.Water;
-                TextElement.text = CurrentElement + "";
+                ElementSprite.sprite = ElementSprites[(int)BulletElement.Water];
+                ElementSprite.color = new Color(100, 100, 100, 100);
             }
         }
 
@@ -145,7 +152,7 @@ public class MovingEntity : MonoBehaviour
             b.Init(this, radius, new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)), CurrentElement, map);
             canShoot = false;
             CurrentElement = BulletElement.Neutral;
-            TextElement.text = CurrentElement + "";
+            ElementSprite.color = new Color(0, 0, 0, 0);
             StartCoroutine("Reload");
             shootingSound.Play();
         }
@@ -180,7 +187,10 @@ public class MovingEntity : MonoBehaviour
         if (CurrentElement == BulletElement.Neutral)
         {
             CurrentElement = element;
-            TextElement.text = CurrentElement + "";
+            ElementSprite.color = new Color(100, 100, 100, 100);
+
+            ElementSprite.sprite = ElementSprites[(int)element];
+            ElementSprite.color = new Color(100, 100, 100, 100);
             return true;
         }
         return false;
@@ -192,7 +202,7 @@ public class MovingEntity : MonoBehaviour
         if(onDamageCooldown) return;
         currentLife -= amount;
         Anim.SetTrigger("Hit");
-        TextPV.text = "Life: " + currentLife;
+        TextPV.text = currentLife+"/8";
         if(currentLife <= 0)
         {
             Die();
@@ -206,7 +216,7 @@ public class MovingEntity : MonoBehaviour
     void Die()
     {
         TextPV.text = "Dead";
-        TextElement.text = "";
+        ElementSprite.color = new Color(0,0,0,0);
         this.gameObject.SetActive(false);
         Manager.OnCharacterDie();
     }
