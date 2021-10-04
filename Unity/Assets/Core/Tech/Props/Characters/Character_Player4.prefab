@@ -269,7 +269,7 @@ MonoBehaviour:
   CurrentElement: 4
   radius: 1
   reloadTimer: 0.75
-  shootingSound: {fileID: 0}
+  shootingSound: {fileID: -6387789553731937689}
   cheat: 0
   currentLife: 8
   mapDamageCooldown: 1
