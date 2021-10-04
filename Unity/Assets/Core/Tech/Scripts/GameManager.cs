@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         Instance = this;
         DontDestroyOnLoad(this);
         Source.clip = Menu;
