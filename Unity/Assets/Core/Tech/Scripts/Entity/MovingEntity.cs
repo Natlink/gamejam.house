@@ -43,6 +43,7 @@ public class MovingEntity : MonoBehaviour
     public float reloadTimer = 0.5f;
     private bool canShoot = true;
     public AudioSource shootingSound;
+    public AudioSource breaking, fire, stone, water, wind;
 
     public bool cheat;
 
@@ -218,6 +219,27 @@ public class MovingEntity : MonoBehaviour
         ElementSprite.color = new Color(0,0,0,0);
         this.gameObject.SetActive(false);
         Manager.OnCharacterDie();
+    }
+
+    public void PlayBreakingSound(BulletElement element)
+    {
+        breaking.Play();
+        if (element == BulletElement.Fire)
+        {
+            fire.Play();
+        }
+        else if (element == BulletElement.Earth)
+        {
+            stone.Play();
+        }
+        else if (element == BulletElement.Water)
+        {
+            water.Play();
+        }
+        else if (element == BulletElement.Wind)
+        {
+            wind.Play();
+        }
     }
 }
 

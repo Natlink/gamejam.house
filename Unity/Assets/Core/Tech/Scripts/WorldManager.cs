@@ -128,7 +128,7 @@ public class WorldManager : MonoBehaviour
                     CurrentMeteoElement==BulletElement.Wind?
                         first? MeteoFX:null: 
                     MeteoFX,
-                    warningFX);
+                    warningFX, first);
                 first = false;
             }
             CurrentMeteoCount = CurrentMeteoCount + 0.5f;
