@@ -33,25 +33,25 @@ public class LobbyMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Player1Fire1"))
+        if (Input.GetButtonDown("Player1Fire1")|| Input.GetButtonDown("Player1Fire2"))
         {
             Player1 = !Player1;
             PlayerImage1.color = Player1 ? NormalColor : GreyColor;
         }
 
-        if (Input.GetButtonDown("Player2Fire1"))
+        if (Input.GetButtonDown("Player2Fire1")|| Input.GetButtonDown("Player2Fire2"))
         {
             Player2 = !Player2;
             PlayerImage2.color = Player2 ? NormalColor : GreyColor;
         }
 
-        if (Input.GetButtonDown("Player3Fire1"))
+        if (Input.GetButtonDown("Player3Fire1")|| Input.GetButtonDown("Player3Fire2"))
         {
             Player3 = !Player3;
             PlayerImage3.color = Player3 ? NormalColor : GreyColor;
         }
 
-        if (Input.GetButtonDown("Player4Fire1"))
+        if (Input.GetButtonDown("Player4Fire1") || Input.GetButtonDown("Player4Fire2"))
         {
             Player4 = !Player4;
             PlayerImage4.color = Player4 ? NormalColor : GreyColor;
