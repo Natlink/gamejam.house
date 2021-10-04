@@ -24,10 +24,10 @@ public class LobbyMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerImage1.color = Player1 ? NormalColor : GreyColor;
-        PlayerImage2.color = Player2 ? NormalColor : GreyColor;
-        PlayerImage3.color = Player3 ? NormalColor : GreyColor;
-        PlayerImage4.color = Player4 ? NormalColor : GreyColor;
+        //PlayerImage1.color = Player1 ? NormalColor : GreyColor;
+        //PlayerImage2.color = Player2 ? NormalColor : GreyColor;
+        //PlayerImage3.color = Player3 ? NormalColor : GreyColor;
+        //PlayerImage4.color = Player4 ? NormalColor : GreyColor;
     }
 
     // Update is called once per frame

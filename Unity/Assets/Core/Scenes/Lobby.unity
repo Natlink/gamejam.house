@@ -1141,8 +1141,8 @@ MonoBehaviour:
   Player2: 0
   Player3: 0
   Player4: 0
-  NormalColor: {r: 1, g: 1, b: 1, a: 0}
-  GreyColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  GreyColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
 --- !u!1 &1940388837
 GameObject:
   m_ObjectHideFlags: 0
