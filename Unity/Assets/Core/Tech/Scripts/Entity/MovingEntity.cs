@@ -48,8 +48,8 @@ public class MovingEntity : MonoBehaviour
     public const int maxLife = 12;
     public int currentLife = maxLife;
 
-    public float mapDamageCooldown = 1.0f;
-    private bool onMapDamageCooldown = false;
+    public float damageCooldown = 0.75f;
+    private bool onDamageCooldown = false;
     private WorldManager Manager;
 
     // Start is called before the first frame update
@@ -161,21 +161,16 @@ public class MovingEntity : MonoBehaviour
     void MapDamage(CellElement cellElem)
     {
         bool onMapDamagingCell = cellElem == CellElement.Flamme | cellElem == CellElement.Lava;
-        if(onMapDamagingCell && !onMapDamageCooldown)
+        if(onMapDamagingCell)
         {
             Damage(1);
-            if (currentLife > 0)
-            {
-                onMapDamageCooldown = true;
-                StartCoroutine("MapDamageCooldown");
-            }
         }
     }
 
-    IEnumerator MapDamageCooldown()
+    IEnumerator waitForDamageCooldown()
     {
-        yield return new WaitForSeconds(mapDamageCooldown);
-        onMapDamageCooldown = false;
+        yield return new WaitForSeconds(damageCooldown);
+        onDamageCooldown = false;
         yield return null;
     }
 
@@ -193,12 +188,17 @@ public class MovingEntity : MonoBehaviour
 
     public void Damage(int amount)
     {
+        if(onDamageCooldown) return;
         currentLife -= amount;
         Anim.SetTrigger("Hit");
         TextPV.text = "Life: " + currentLife;
         if(currentLife <= 0)
         {
             Die();
+        } else
+        {
+            onDamageCooldown = true;
+            StartCoroutine("waitForDamageCooldown");
         }
     }
 
