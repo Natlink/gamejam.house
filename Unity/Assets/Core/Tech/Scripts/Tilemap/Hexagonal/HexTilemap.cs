@@ -15,8 +15,6 @@ public class HexTilemap : AbstractTilemap
 	public TextMeshProUGUI TextPrefab;
 	private HexMesh Mesh;
 
-	private GameObject[] ElementExclamation;
-
 	public List<ElementObject> Elements;
 	
 	void Awake()
@@ -142,12 +140,12 @@ public class HexTilemap : AbstractTilemap
 	}
 
 
-	internal void SpawnRandomMeteo(int meteoSize, float meteoWarningDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX)
+	internal void SpawnRandomMeteo(int meteoSize, float meteoWarningDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX, GameObject meteoWarningFX)
 	{
+		if (element == BulletElement.Neutral) return;
 		HexCell c = Cells[Random.Range(0, (Width * Height) - 1)];
-		GameObject warningFX = ElementExclamation[(int)element];
 
-		StartCoroutine(explosionFX(meteoWarningDelay, meteoDelayFX, c, element, meteoSize, warningFX, meteoFX));
+		StartCoroutine(explosionFX(meteoWarningDelay, meteoDelayFX, c, element, meteoSize, meteoWarningFX, meteoFX));
 	}
 
  
@@ -157,18 +155,21 @@ public class HexTilemap : AbstractTilemap
 		List<GameObject> warningList = new List<GameObject>();
 		foreach(HexCell cc in GetNeighboors(meteoSize, c))
         {
-
+			GameObject o = Instantiate(warning, cc.transform);
+			o.transform.position = new Vector3(o.transform.position.x, 0.5f, o.transform.position.z);
+			warningList.Add(o);
         }
 		yield return new WaitForSeconds(secsWarning);
+		foreach (GameObject o in warningList) Destroy(o);
 
 		GameObject explo = explosionFX == null ? null : Instantiate(explosionFX);
 		if (explo != null && element != BulletElement.Wind)
 			explo.transform.position = c.transform.position;
 
 		yield return new WaitForSeconds(secsExplosion);
-		if (explosionFX != null)
+		if (explo != null)
 		{
-			Destroy(explosionFX);
+			Destroy(explo);
 		}
 		TouchCell(c, element, meteoSize);
 	}

@@ -435,6 +435,11 @@ MonoBehaviour:
   - {fileID: 2804832235266436340, guid: 0c9fb87684ffb054e8effb20a0bb8be3, type: 3}
   - {fileID: 2481164301776879305, guid: d8f09503c17ef4849a7433534de92713, type: 3}
   - {fileID: 1458051004529050490, guid: 6ddc4de8b270c2e45806b1d0782bf69b, type: 3}
+  ElementExclamation:
+  - {fileID: 8755787639188682124, guid: dfa4691905cacb84eaea97c3547c04c5, type: 3}
+  - {fileID: 8755787639188682124, guid: 1cf1b1e935e9fea4999637fca5ce9b20, type: 3}
+  - {fileID: 8755787639188682124, guid: 2d50c107c95050343a40f62c417943c4, type: 3}
+  - {fileID: 8755787639188682124, guid: f1d7479924096504c8e65ba35c42ccfa, type: 3}
   timing: 0
   Player1Spell: {fileID: 1603949921}
   Player1Life: {fileID: 1909437906}

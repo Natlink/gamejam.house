@@ -31,6 +31,7 @@ public class WorldManager : MonoBehaviour
     public MovingEntity[] CurrentPlayers;
     public GameObject[] PlayerSpawn;
     public GameObject[] MeteoFXs;
+    public GameObject[] ElementExclamation;
 
     public float timing;
 
@@ -101,12 +102,16 @@ public class WorldManager : MonoBehaviour
             GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
             //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
             bool first = true;
+
+            GameObject warningFX = ElementExclamation[(int)CurrentMeteoElement];
+
             for (int i = 0; i < (int)CurrentMeteoCount; ++i)
             {
                 Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, 
                     CurrentMeteoElement==BulletElement.Wind?
                         first? MeteoFX:null: 
-                    MeteoFX);
+                    MeteoFX,
+                    warningFX);
                 first = false;
             }
             CurrentMeteoCount = CurrentMeteoCount + 0.5f;
