@@ -30,6 +30,7 @@ public class CellCollider : MonoBehaviour
         MovingEntity e=null;
         if (ColliderEnabled && collision.gameObject.TryGetComponent(out e))
         {
+            e.Damage(1);
             Prop.HitBullet(BulletElement.Earth);
             e.Rgbd.AddForce(Random.Range(-2, 2), 100, Random.Range(-2, 2));
         }
