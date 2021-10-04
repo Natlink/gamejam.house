@@ -114,28 +114,27 @@ public class WorldManager : MonoBehaviour
 
     void Meteo()
     {
-        if(CurrentMeteoElement != BulletElement.Neutral)
+        CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
+        if (CurrentMeteoElement == BulletElement.Neutral) CurrentMeteoElement = BulletElement.Fire;
+
+        GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
+        //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
+        bool first = true;
+
+        GameObject warningFX = ElementExclamation[(int)CurrentMeteoElement];
+
+        for (int i = 0; i < (int)CurrentMeteoCount; ++i)
         {
-            GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
-            //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
-            bool first = true;
-
-            GameObject warningFX = ElementExclamation[(int)CurrentMeteoElement];
-
-            for (int i = 0; i < (int)CurrentMeteoCount; ++i)
-            {
-                Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, 
-                    CurrentMeteoElement==BulletElement.Wind?
-                        first? MeteoFX:null: 
-                    MeteoFX,
-                    warningFX, first);
-                first = false;
-            }
-            CurrentMeteoCount = CurrentMeteoCount + 0.5f;
+            Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement,
+                CurrentMeteoElement == BulletElement.Wind ?
+                    first ? MeteoFX : null :
+                MeteoFX,
+                warningFX, first);
+            first = false;
         }
+        CurrentMeteoCount = CurrentMeteoCount + 0.5f;
         CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
         MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
-        if (CurrentMeteoElement == BulletElement.Neutral) CurrentMeteoElement = BulletElement.Fire;
     }
 
     public void OnCharacterDie()
