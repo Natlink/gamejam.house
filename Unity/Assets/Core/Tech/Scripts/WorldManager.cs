@@ -106,8 +106,7 @@ public class WorldManager : MonoBehaviour
                 Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, 
                     CurrentMeteoElement==BulletElement.Wind?
                         first? MeteoFX:null: 
-                    MeteoFX,
-                    null);
+                    MeteoFX);
                 first = false;
             }
             CurrentMeteoCount = CurrentMeteoCount + 0.5f;

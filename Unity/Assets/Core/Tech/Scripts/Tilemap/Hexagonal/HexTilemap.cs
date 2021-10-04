@@ -155,6 +155,10 @@ public class HexTilemap : AbstractTilemap
 	{
 		GameObject warning = meteoWarningFX == null ? null : Instantiate(meteoWarningFX);
 		List<GameObject> warningList = new List<GameObject>();
+		foreach(HexCell cc in GetNeighboors(meteoSize, c))
+        {
+
+        }
 		yield return new WaitForSeconds(secsWarning);
 
 		GameObject explo = explosionFX == null ? null : Instantiate(explosionFX);
