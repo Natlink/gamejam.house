@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame(bool p1, bool p2, bool p3, bool p4)
     {
-        Debug.Log(p1);
         Player1 = p1;
         Player2 = p2;
         Player3 = p3;

@@ -142,22 +142,26 @@ public class HexTilemap : AbstractTilemap
 	}
 
 
-	internal void SpawnRandomMeteo(int meteoSize, float meteoDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX, GameObject meteoWarningFX)
+	internal void SpawnRandomMeteo(int meteoSize, float meteoWarningDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX)
 	{
-		GameObject explo = meteoFX == null ? null:Instantiate(meteoFX);
-		GameObject warning = meteoWarningFX == null ? null:Instantiate(meteoWarningFX);
 		HexCell c = Cells[Random.Range(0, (Width * Height) - 1)];
-		if(explo!=null && element != BulletElement.Wind)
-			explo.transform.position = c.transform.position;
+		GameObject warningFX = ElementExclamation[(int)element];
 
-	//	StartCoroutine(warningFX(meteoDelay, c, element, meteoSize, warning));
-		StartCoroutine(explosionFX(meteoDelayFX, c, element, meteoSize, explo));
+		StartCoroutine(explosionFX(meteoWarningDelay, meteoDelayFX, c, element, meteoSize, warningFX, meteoFX));
 	}
 
  
-	IEnumerator explosionFX(float secs, HexCell c, BulletElement element, int meteoSize, GameObject explosionFX)
+	IEnumerator explosionFX(float secsWarning, float secsExplosion, HexCell c, BulletElement element, int meteoSize, GameObject meteoWarningFX, GameObject explosionFX)
 	{
-		yield return new WaitForSeconds(secs);
+		GameObject warning = meteoWarningFX == null ? null : Instantiate(meteoWarningFX);
+		List<GameObject> warningList = new List<GameObject>();
+		yield return new WaitForSeconds(secsWarning);
+
+		GameObject explo = explosionFX == null ? null : Instantiate(explosionFX);
+		if (explo != null && element != BulletElement.Wind)
+			explo.transform.position = c.transform.position;
+
+		yield return new WaitForSeconds(secsExplosion);
 		if (explosionFX != null)
 		{
 			Destroy(explosionFX);
