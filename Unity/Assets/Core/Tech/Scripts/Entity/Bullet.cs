@@ -65,6 +65,8 @@ public class Bullet : MonoBehaviour
             }
         }
 
+        caster.PlayBreakingSound(Element);
+
         Grid.TouchCell(c, Element, Radius);
         Destroy(this.gameObject);
     }
