@@ -16,12 +16,12 @@ public class WorldManager : MonoBehaviour
     public int DefaultMeteoCount = 1;
     private float CurrentMeteoCount = 1.0f;
     public BulletElement CurrentMeteoElement = BulletElement.Fire;
-    public int MeteoSizeMin = 0;
-    public int MeteoSizeMax = 3;
+    public int MeteoSizeMin = 1;
+    public int MeteoSizeMax = 1;
 
-    public int MeteoMinDelay = 10;
+    public int MeteoMinDelay = 15;
 
-    public int MeteoMaxDelay = 20;
+    public int MeteoMaxDelay = 25;
     public float MeteoDelayWarning = 5;
     public float MeteoDelayExplosion = 1;
     private int MeteoRandomDelay;
