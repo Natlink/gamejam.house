@@ -105,7 +105,7 @@ MonoBehaviour:
   radius: 1
   reloadTimer: 0.75
   cheat: 0
-  currentLife: 12
+  currentLife: 8
   mapDamageCooldown: 1
 --- !u!1 &2109353499141899443
 GameObject:
