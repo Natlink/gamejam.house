@@ -31,6 +31,7 @@ public class VictoryMenu : MonoBehaviour
 
     public void Exit()
     {
+        GameManager.Instance.playClick();
         GameManager.Instance.ReturnToMenu(); 
     }
 }

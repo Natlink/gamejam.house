@@ -60,11 +60,13 @@ public class LobbyMenu : MonoBehaviour
 
     public void Play()
     {
+        GameManager.Instance.playClick();
         GameManager.Instance.LoadGame(Player1, Player2, Player3, Player4);
     }
 
     public void Quit()
     {
+        GameManager.Instance.playClick();
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public AudioSource Source;
     public AudioClip Menu;
     public AudioClip Game;
+    public AudioSource Click;
 
     // Start is called before the first frame update
     void Start()
@@ -68,5 +69,10 @@ public class GameManager : MonoBehaviour
     {
         Winner = winner;
         SceneManager.LoadScene(VictoryScene);
+    }
+
+    public void playClick()
+    {
+        Click.Play();
     }
 }
