@@ -434,8 +434,8 @@ MonoBehaviour:
   CurrentMeteoElement: 4
   MeteoSizeMin: 1
   MeteoSizeMax: 1
-  MeteoMinDelay: 10
-  MeteoMaxDelay: 20
+  MeteoMinDelay: 8
+  MeteoMaxDelay: 15
   MeteoDelayWarning: 5
   MeteoDelayExplosion: 0.5
   Map: {fileID: 676064471}
