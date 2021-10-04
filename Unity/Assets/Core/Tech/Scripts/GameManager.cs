@@ -23,11 +23,17 @@ public class GameManager : MonoBehaviour
 
     public int Winner;
 
+    public AudioSource Source;
+    public AudioClip Menu;
+    public AudioClip Game;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         DontDestroyOnLoad(this);
+        Source.clip = Menu;
+        Source.Play();
     }
 
     public void LoadGame(bool p1, bool p2, bool p3, bool p4)
@@ -41,11 +47,16 @@ public class GameManager : MonoBehaviour
         {
             Player1 = true;
         }
+        Source.clip = Game;
+        Source.Play();
+
         SceneManager.LoadScene(GameScene);
     }
 
     public void ReturnToMenu()
     {
+        Source.clip = Menu;
+        Source.Play();
         SceneManager.LoadScene(MenuScene);
     }
 
