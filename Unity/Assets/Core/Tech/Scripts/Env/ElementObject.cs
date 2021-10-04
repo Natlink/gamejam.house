@@ -22,13 +22,24 @@ public class ElementObject : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         MovingEntity entity = collision.gameObject.GetComponent<MovingEntity>();
-        if (entity != null)
+        if (entity != null && entity.CanPickElement(Element))
         {
-            if (entity.CanPickElement(Element)) { }
-
+            Destroy();
+            return;
         }
+
+        CellCollider rock = collision.gameObject.GetComponent<CellCollider>();
+        if (rock != null)
+        {
+            Destroy();
+            return;
+        }
+
+    }
+
+    public void Destroy()
+    {
         Map.SpawnRandomElement();
         Destroy(this.gameObject);
     }
-
 }
