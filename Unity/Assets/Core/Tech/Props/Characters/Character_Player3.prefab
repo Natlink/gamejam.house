@@ -177,6 +177,7 @@ MonoBehaviour:
   fire1: Player3Fire1
   fire2: Player3Fire2
   fire3: Player3Fire3
+  fire4: Player3Fire4
   SpeedNormal: 10
   SpeedIce: 25
   SpeedLiquid: 3

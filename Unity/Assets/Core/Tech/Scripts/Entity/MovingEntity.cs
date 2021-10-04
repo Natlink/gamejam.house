@@ -18,7 +18,6 @@ public class MovingEntity : MonoBehaviour
 
     public String fire1 = "Player1Fire1";
     public String fire2 = "Player1Fire2";
-    public String fire3 = "Player1Fire3";
 
     public float SpeedNormal = 10;
     public float SpeedIce = 25.0f;
@@ -109,6 +108,7 @@ public class MovingEntity : MonoBehaviour
         }
 
         button |= Input.GetButtonDown(fire1);
+        button |= Input.GetButtonDown(fire2);
     }
 
     void Move(CellElement cellElem)
