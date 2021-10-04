@@ -55,7 +55,17 @@ public class Bullet : MonoBehaviour
         Processed = true;
         Vector3 pos = transform.position;
         pos.y = 0;
-        Grid.TouchCell(Grid.GetCell(pos), Element, Radius);
+        HexCell c = Grid.GetCell(pos);
+        
+        foreach(MovingEntity e in WorldManager.Instance.CurrentPlayers)
+        {
+            if (e != null && c.Equals(WorldManager.Instance.Map.GetCell(e.transform.position)))
+            {
+                e.Damage(1);
+            }
+        }
+
+        Grid.TouchCell(c, Element, Radius);
         Destroy(this.gameObject);
     }
 /*
