@@ -15,6 +15,7 @@ public class HexTilemap : AbstractTilemap
 	public TextMeshProUGUI TextPrefab;
 	private HexMesh Mesh;
 
+	private GameObject[] ElementExclamation;
 
 	public List<ElementObject> Elements;
 	
