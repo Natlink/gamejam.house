@@ -16,6 +16,8 @@ public class HexTilemap : AbstractTilemap
 	private HexMesh Mesh;
 
 	public List<ElementObject> Elements;
+
+	public AudioSource fire, earth, water, wind;
 	
 	void Awake()
 	{
@@ -140,16 +142,16 @@ public class HexTilemap : AbstractTilemap
 	}
 
 
-	internal void SpawnRandomMeteo(int meteoSize, float meteoWarningDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX, GameObject meteoWarningFX)
+	internal void SpawnRandomMeteo(int meteoSize, float meteoWarningDelay, float meteoDelayFX, BulletElement element, GameObject meteoFX, GameObject meteoWarningFX, bool first)
 	{
 		if (element == BulletElement.Neutral) return;
 		HexCell c = Cells[Random.Range(0, (Width * Height) - 1)];
 
-		StartCoroutine(explosionFX(meteoWarningDelay, meteoDelayFX, c, element, meteoSize, meteoWarningFX, meteoFX));
+		StartCoroutine(explosionFX(meteoWarningDelay, meteoDelayFX, c, element, meteoSize, meteoWarningFX, meteoFX, first));
 	}
 
  
-	IEnumerator explosionFX(float secsWarning, float secsExplosion, HexCell c, BulletElement element, int meteoSize, GameObject meteoWarningFX, GameObject explosionFX)
+	IEnumerator explosionFX(float secsWarning, float secsExplosion, HexCell c, BulletElement element, int meteoSize, GameObject meteoWarningFX, GameObject explosionFX, bool first)
 	{
 		GameObject warning = meteoWarningFX == null ? null : Instantiate(meteoWarningFX);
 		List<GameObject> warningList = new List<GameObject>();
@@ -170,6 +172,21 @@ public class HexTilemap : AbstractTilemap
 		if (explo != null)
 		{
 			Destroy(explo);
+		}
+		switch(element)
+		{
+			case BulletElement.Fire:
+				fire.Play();
+				break;
+			case BulletElement.Earth:
+				earth.Play();
+				break;
+			case BulletElement.Water:
+				water.Play();
+				break;
+			case BulletElement.Wind:
+				wind.Play();
+				break;
 		}
 		TouchCell(c, element, meteoSize);
 	}
