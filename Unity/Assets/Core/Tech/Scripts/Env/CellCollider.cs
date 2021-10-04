@@ -26,7 +26,6 @@ public class CellCollider : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        
         MovingEntity e=null;
         if (ColliderEnabled && collision.gameObject.TryGetComponent(out e))
         {

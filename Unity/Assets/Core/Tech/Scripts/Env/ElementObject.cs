@@ -19,7 +19,7 @@ public class ElementObject : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
         MovingEntity entity = collision.gameObject.GetComponent<MovingEntity>();
         if (entity != null && entity.CanPickElement(Element))
@@ -29,6 +29,14 @@ public class ElementObject : MonoBehaviour
         }
 
         CellCollider rock = collision.gameObject.GetComponent<CellCollider>();
+        if(rock == null)
+        {
+            rock = collision.gameObject.GetComponentInChildren<CellCollider>();
+        }
+        if (rock == null)
+        {
+            rock = collision.gameObject.GetComponentInParent<CellCollider>();
+        }
         if (rock != null)
         {
             Destroy();
