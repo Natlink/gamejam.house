@@ -81,11 +81,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject != caster.gameObject && !Processed)
         {
-            MovingEntity player = collision.gameObject.GetComponent<MovingEntity>();
-            if (player != null)
-            {
-                player.Damage(1);
-            }
             ProcessBullet();
         }
     }
