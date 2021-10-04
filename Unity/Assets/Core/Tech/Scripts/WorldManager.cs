@@ -14,7 +14,7 @@ public class WorldManager : MonoBehaviour
 
     public int ElementCountOnBoard = 4;
     public int DefaultMeteoCount = 1;
-    private int CurrentMeteoCount = 1;
+    private float CurrentMeteoCount = 1.0f;
     public BulletElement CurrentMeteoElement = BulletElement.Fire;
     public int MeteoSizeMin = 0;
     public int MeteoSizeMax = 3;
@@ -101,7 +101,7 @@ public class WorldManager : MonoBehaviour
             GameObject MeteoFX = MeteoFXs[(int)CurrentMeteoElement];
             //  Debug.Log(CurrentMeteoElement + " " + (int)CurrentMeteoElement);
             bool first = true;
-            for (int i = 0; i < CurrentMeteoCount; ++i)
+            for (int i = 0; i < (int)CurrentMeteoCount; ++i)
             {
                 Map.SpawnRandomMeteo(Random.Range(MeteoSizeMin, MeteoSizeMax), MeteoDelayWarning, MeteoDelayExplosion, CurrentMeteoElement, 
                     CurrentMeteoElement==BulletElement.Wind?
@@ -110,8 +110,7 @@ public class WorldManager : MonoBehaviour
                     null);
                 first = false;
             }
-
-            CurrentMeteoCount++;
+            CurrentMeteoCount = CurrentMeteoCount + 0.5f;
         }
         CurrentMeteoElement = (BulletElement)(int)Random.Range(0, 4);
         MeteoRandomDelay = Random.Range(MeteoMinDelay, MeteoMaxDelay);
